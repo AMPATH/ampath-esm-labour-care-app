@@ -11,14 +11,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './root.scss';
-import PartographDashboard from './components/partograph-dashboard.component';
+import LabourCareDashboard from './components/labour-care-dashboard.component';
 
 const Root: React.FC = () => {
   const { t } = useTranslation();
 
   return (
     <div className={styles.container}>
-      <PartographDashboard />
+      <LabourCareDashboard />
     </div>
   );
 };

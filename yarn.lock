@@ -12,9 +12,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ampath/esm-partograph-app@workspace:.":
+"@ampath/esm-labour-care-app@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@ampath/esm-partograph-app@workspace:."
+  resolution: "@ampath/esm-labour-care-app@workspace:."
   dependencies:
     "@carbon/charts-react": "npm:^1.27.2"
     "@carbon/react": "npm:^1.83.0"

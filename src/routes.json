@@ -6,12 +6,12 @@
   },
   "extensions": [
     {
-      "name": "partograph-summary-dashboard",
+      "name": "labour-care-summary-dashboard",
       "slot": "patient-chart-dashboard-slot",
-      "component": "patientChartPartographLink",
+      "component": "patientChartLabourCareLink",
       "meta": {
-        "slot": "patient-chart-partograph-dashboard-slot",
-        "path": "Partograph",
+        "slot": "patient-chart-labour-care-dashboard-slot",
+        "path": "Labour Care",
         "layoutMode": "anchored"
       },
       "order": 17,
@@ -19,15 +19,15 @@
       "offline": true
     },
     {
-      "name": "partograph-details-overview",
-      "slot": "patient-chart-partograph-dashboard-slot",
+      "name": "labour-care-details-overview",
+      "slot": "patient-chart-labour-care-dashboard-slot",
       "component": "root",
       "online": true,
       "offline": true
     },
     {
       "name": "foetal-heart-rate-chart",
-      "slot": "partograph-chart-slot",
+      "slot": "labour-care-chart-slot",
       "component": "foetalHeartRateChart",
       "order": 0,
       "online": true,
@@ -35,7 +35,7 @@
     },
     {
       "name": "membrane-amniotic-fluid-and-moulding-datatable",
-      "slot": "partograph-chart-slot",
+      "slot": "labour-care-chart-slot",
       "component": "membraneAmnioticFluidAndMouldingDatatable",
       "order": 1,
       "online": true,
@@ -43,7 +43,7 @@
     },
     {
       "name": "cervical-chart",
-      "slot": "partograph-chart-slot",
+      "slot": "labour-care-chart-slot",
       "component": "cervicalChart",
       "order": 2,
       "online": true,
@@ -51,7 +51,7 @@
     },
     {
       "name": "oxytocin-datatable",
-      "slot": "partograph-chart-slot",
+      "slot": "labour-care-chart-slot",
       "component": "oxytocinDatatable",
       "order": 3,
       "online": true,
@@ -59,7 +59,7 @@
     },
     {
       "name": "drugs-and-fluids-datatable",
-      "slot": "partograph-chart-slot",
+      "slot": "labour-care-chart-slot",
       "component": "drugsAndFluidsDatatable",
       "order": 4,
       "online": true,
@@ -67,7 +67,7 @@
     },
     {
       "name": "blood-pressure-chart",
-      "slot": "partograph-chart-slot",
+      "slot": "labour-care-chart-slot",
       "component": "bloodPressureChart",
       "order": 5,
       "online": true,
@@ -75,7 +75,7 @@
     },
     {
       "name": "temperature-datatable",
-      "slot": "partograph-chart-slot",
+      "slot": "labour-care-chart-slot",
       "component": "temperatureDatatable",
       "order": 6,
       "online": true,
@@ -83,7 +83,7 @@
     },
     {
       "name": "urine-datatable",
-      "slot": "partograph-chart-slot",
+      "slot": "labour-care-chart-slot",
       "component": "urineDatatable",
       "order": 7,
       "online": true,
@@ -95,53 +95,53 @@
     {
       "name": "foetal-heart-rate-workspace",
       "component": "foetalHeartRateForm",
-      "window": "partograph-window"
+      "window": "labour-care-window"
     },
     {
       "name": "cervical-workspace",
       "component": "cervicalForm",
-      "window": "partograph-window"
+      "window": "labour-care-window"
     },
     {
       "name": "blood-pressure-workspace",
       "component": "bloodPressureForm",
-      "window": "partograph-window"
+      "window": "labour-care-window"
     },
     {
       "name": "drugs-and-fluids-workspace",
       "component": "drugsAndFluidsForm",
-      "window": "partograph-window"
+      "window": "labour-care-window"
     },
     {
       "name": "membrane-amniotic-fluid-and-moulding-workspace",
       "component": "membraneAmnioticFluidAndMouldingForm",
-      "window": "partograph-window"
+      "window": "labour-care-window"
     },
     {
       "name": "oxytocin-workspace",
       "component": "oxytocinForm",
-      "window": "partograph-window"
+      "window": "labour-care-window"
     },
     {
       "name": "temperature-workspace",
       "component": "temperatureForm",
-      "window": "partograph-window"
+      "window": "labour-care-window"
     },
     {
       "name": "urine-workspace",
       "component": "urineForm",
-      "window": "partograph-window"
+      "window": "labour-care-window"
     }
   ],
   "workspaceWindows2": [
     {
-      "name": "partograph-window",
-      "group": "partograph-group"
+      "name": "labour-care-window",
+      "group": "labour-care-group"
     }
   ],
   "workspaceGroups2": [
     {
-      "name": "partograph-group",
+      "name": "labour-care-group",
       "overlay": true
     }
   ]

@@ -7,12 +7,12 @@
 import { getAsyncLifecycle, defineConfigSchema, getSyncLifecycle } from '@openmrs/esm-framework';
 import { createDashboardLink } from '@openmrs/esm-patient-common-lib';
 import { configSchema } from './config-schema';
-import { patientChartPartographMetaData } from './dashboard-meta';
+import { patientChartLabourCareMetaData } from './dashboard-meta';
 
-const moduleName = '@ampath/esm-partograph-app';
+const moduleName = '@ampath/esm-labour-care-app';
 
 const options = {
-  featureName: 'partograph',
+  featureName: 'labour-care',
   moduleName,
 };
 
@@ -41,8 +41,8 @@ export function startupApp() {
  */
 export const root = getAsyncLifecycle(() => import('./root.component'), options);
 
-export const patientChartPartographLink = getSyncLifecycle(
-  createDashboardLink(patientChartPartographMetaData),
+export const patientChartLabourCareLink = getSyncLifecycle(
+  createDashboardLink(patientChartLabourCareMetaData),
   options,
 );
 
