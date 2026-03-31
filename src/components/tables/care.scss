@@ -1,0 +1,146 @@
+// LabourCareGuide.scss
+// @import '@carbon/react/scss/breakpoints';
+
+.labour-care-guide {
+  padding: 2rem;
+  background-color: #f4f4f4;
+
+  .labour-guide-header {
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    h1 {
+      margin: 0;
+      color: #161616;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+  }
+
+  .section-divider {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #0f62fe;
+
+    h2 {
+      margin: 0;
+      color: #161616;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+  }
+
+  form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .observation-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+
+    table {
+      background-color: white;
+      border-collapse: collapse;
+
+      thead {
+        background-color: #f4f4f4;
+
+        th {
+          padding: 0.75rem;
+          text-align: left;
+          font-weight: 600;
+          color: #161616;
+          border: 1px solid #e0e0e0;
+          font-size: 0.875rem;
+
+          &:nth-child(n + 3) {
+            text-align: center;
+            width: 60px;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          &:hover {
+            background-color: #f4f4f4;
+          }
+
+          td {
+            padding: 0.75rem;
+            border: 1px solid #e0e0e0;
+            color: #525252;
+
+            &:nth-child(1),
+            &:nth-child(2) {
+              font-weight: 500;
+              background-color: #f9f9f9;
+              width: 150px;
+            }
+
+            &:nth-child(n + 3) {
+              padding: 0.25rem;
+
+              input {
+                width: 100%;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+//   /* Responsive Design */
+//   @include carbon--breakpoint('md') {
+//     padding: 1rem;
+
+//     form {
+//       padding: 1rem;
+//     }
+
+//     .observation-table {
+//       font-size: 0.875rem;
+
+//       table {
+//         thead th,
+//         tbody td {
+//           padding: 0.5rem;
+//         }
+//       }
+//     }
+//   }
+
+//   @include carbon--breakpoint('sm') {
+//     padding: 0.5rem;
+
+//     .labour-guide-header {
+//       padding: 1rem;
+
+//       h1 {
+//         font-size: 1.5rem;
+//       }
+//     }
+
+//     form {
+//       padding: 1rem;
+//     }
+
+//     .section-divider h2 {
+//       font-size: 1rem;
+//     }
+
+//     .observation-table {
+//       overflow-x: auto;
+//       -webkit-overflow-scrolling: touch;
+//     }
+//   }
+}

@@ -4,6 +4,8 @@ import '@carbon/charts-react/styles.css';
 import options from "./options";
 import { getHoursLabels } from "../../utils";
 import AddObservationAction from "../../action/add-observation-action.component";
+import Tables from "../../tables/tables.component";
+import LabourCareGuide from "../../tables/care.component";
 
 interface BloodPressureChartProps {
     hello: string
@@ -36,7 +38,9 @@ const BloodPressureChart: React.FC<BloodPressureChartProps> = ({ hello }) => {
     return (
         <>
             <AddObservationAction workspaceName={workspaceName} mutated={mutated} />
-            <LollipopChart data={data} options={options} />
+            {/* <LollipopChart data={data} options={options} /> */}
+            <Tables />
+            {/* <LabourCareGuide /> */}
         </>
     );
 }
