@@ -30,7 +30,19 @@ const TableRowData: React.FC<TableRowDataProps> = ({ rowLabelText, rowLength, da
                     <input
                         type="text"
                         placeholder="-"
-                        value={timeSlot}
+                        // value={timeSlot}
+                        disabled
+                        className={`${styles.input} ${(abnormalValues ? abnormalValues.isAbnormal("") : false) ? styles.abnormal : ''}`}
+                    />
+                </TableCell>
+            ))}
+            <p> </p>
+            {rowLength.secondStage.map((timeSlot) => (
+                <TableCell key={`${rowLabelText}-${timeSlot}`} className={styles.dataCell}>
+                    <input
+                        type="text"
+                        placeholder="-"
+                        // value={timeSlot}
                         disabled
                         className={`${styles.input} ${(abnormalValues ? abnormalValues.isAbnormal("") : false) ? styles.abnormal : ''}`}
                     />

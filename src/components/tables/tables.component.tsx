@@ -113,7 +113,7 @@ export default function Tables({
             <Stack gap={5} className={styles.partographContainer}>
                 {/* Header with Timeline */}
                 <div className={styles.header}>
-                    <h2>Partograph - Maternal Monitoring Chart</h2>
+                    <h2>Maternal Monitoring Chart</h2>
                     <div className={styles.timeline}>
                         <div className={styles.timelineLabel}>Alert Time: {alertTime}</div>
                         <div className={styles.timelineLabel}>
@@ -158,7 +158,15 @@ export default function Tables({
                                     </TableCell>
                                 ))} */}
                                 {rowLength.firstStage.map((v) => (
-                                    <TableCell key={`header-${v}`} className={styles.timeHeader}>
+                                    <TableCell key={`first-stage-header-${v}`} className={styles.timeHeader}>
+                                        <div className={styles.timeColumn}>
+                                            <div>{v}</div>
+                                        </div>
+                                    </TableCell>
+                                ))}
+                                <p> </p>
+                                {rowLength.secondStage.map((v) => (
+                                    <TableCell key={`second-stage-header-${v}`} className={styles.timeHeader}>
                                         <div className={styles.timeColumn}>
                                             <div>{v}</div>
                                         </div>

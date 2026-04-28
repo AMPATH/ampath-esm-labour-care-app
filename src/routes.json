@@ -26,66 +26,10 @@
       "offline": true
     },
     {
-      "name": "foetal-heart-rate-chart",
-      "slot": "labour-care-chart-slot",
-      "component": "foetalHeartRateChart",
-      "order": 0,
-      "online": true,
-      "offline": true
-    },
-    {
-      "name": "membrane-amniotic-fluid-and-moulding-datatable",
-      "slot": "labour-care-chart-slot",
-      "component": "membraneAmnioticFluidAndMouldingDatatable",
-      "order": 1,
-      "online": true,
-      "offline": true
-    },
-    {
-      "name": "cervical-chart",
-      "slot": "labour-care-chart-slot",
-      "component": "cervicalChart",
-      "order": 2,
-      "online": true,
-      "offline": true
-    },
-    {
-      "name": "oxytocin-datatable",
-      "slot": "labour-care-chart-slot",
-      "component": "oxytocinDatatable",
-      "order": 3,
-      "online": true,
-      "offline": true
-    },
-    {
-      "name": "drugs-and-fluids-datatable",
-      "slot": "labour-care-chart-slot",
-      "component": "drugsAndFluidsDatatable",
-      "order": 4,
-      "online": true,
-      "offline": true
-    },
-    {
       "name": "blood-pressure-chart",
       "slot": "labour-care-chart-slot",
       "component": "bloodPressureChart",
       "order": 5,
-      "online": true,
-      "offline": true
-    },
-    {
-      "name": "temperature-datatable",
-      "slot": "labour-care-chart-slot",
-      "component": "temperatureDatatable",
-      "order": 6,
-      "online": true,
-      "offline": true
-    },
-    {
-      "name": "urine-datatable",
-      "slot": "labour-care-chart-slot",
-      "component": "urineDatatable",
-      "order": 7,
       "online": true,
       "offline": true
     }
