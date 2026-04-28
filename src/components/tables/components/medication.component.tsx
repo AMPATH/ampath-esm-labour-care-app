@@ -1,13 +1,16 @@
 import React, { useMemo } from "react";
 import TableRowData from "../table-row.component";
-import { type RowValue } from "../../../types";
+import { LabourEncounter, type RowValue } from "../../../types";
+import { getMappedRowValue } from "../../../resource/labour-care.resource";
+import { useConfig } from "@openmrs/esm-framework";
+import { Config } from "../../../config-schema";
 
 interface MedicationProps {
-    data: Array<{}>;
     rowLength: {
         firstStage: Array<number>,
         secondStage: Array<number>
-    }
+    },
+    encounters: LabourEncounter[]
 }
 
 interface Medication {
@@ -16,10 +19,26 @@ interface Medication {
     ivFluids: Array<RowValue>;
 }
 
-const Medication: React.FC<MedicationProps> = ({ data, rowLength }) => {
+const Medication: React.FC<MedicationProps> = ({ encounters, rowLength }) => {
+    const { concepts } = useConfig<Config>();
     const mappedData = useMemo<Medication>(() => {
+        if (encounters) {
+            let results = {
+                oxytocin: [],
+                medicine: [],
+                ivFluids: [],
+            }
+
+            encounters.map((encounter) => {
+                results.oxytocin.push(getMappedRowValue(encounter, concepts.oxytocinAdministeredConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.medicine.push(getMappedRowValue(encounter, concepts.medicationConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.ivFluids.push(getMappedRowValue(encounter, concepts.ivFluidsAdministeredConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+            });
+
+            return results as Medication;
+        }
         return {} as Medication;
-    }, [data]);
+    }, [encounters]);
 
     return <>
         <h6>MEDICATION</h6>

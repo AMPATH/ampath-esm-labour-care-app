@@ -20,6 +20,9 @@ import LabourProgress from './components/labour-progress.component';
 import Medication from './components/medication.component';
 import SharedDecisionMaking from './components/shared-decision-making.component';
 import Initials from './components/initials';
+import LabourCareSummary from '../summary/labour-summary.component';
+import { usePatient } from '@openmrs/esm-framework';
+import { useLabourEncounter } from '../../resource/labour-care.resource';
 
 interface VitalSign {
     time: string;
@@ -67,46 +70,11 @@ export default function Tables({
         }
     }, []);
 
-    const normalRanges = {
-        pulse: '<60, ≤120',
-        systolicBP: '<80, ≤140',
-        diastolicBP: '≥90',
-        temperature: '<35.0, ≥37.5',
-        urine: 'P++, A++',
-    };
+    const { patientUuid } = usePatient();
+    const { encounters } = useLabourEncounter(patientUuid);
 
-    const isAbnormal = (value: string, type: string): boolean => {
-        if (!value) return false;
+    if (!encounters) return null;
 
-        switch (type) {
-            case 'pulse': {
-                const num = parseInt(value);
-                return num < 60 || num > 120;
-            }
-            case 'systolicBP': {
-                const num = parseInt(value);
-                return num < 80 || num > 140;
-            }
-            case 'diastolicBP': {
-                const num = parseInt(value);
-                return num < 90;
-            }
-            case 'temperature': {
-                const num = parseFloat(value);
-                return num < 35.0 || num > 37.5;
-            }
-            case 'urine':
-                return !['P++', 'A++'].includes(value);
-            default:
-                return false;
-        }
-    };
-
-    const handleInputChange = (index: number, field: string, value: string) => {
-        const newData = [...data];
-        newData[index] = { ...newData[index], [field]: value };
-        setData(newData);
-    };
 
     return (
         <Layer>
@@ -114,6 +82,7 @@ export default function Tables({
                 {/* Header with Timeline */}
                 <div className={styles.header}>
                     <h2>Maternal Monitoring Chart</h2>
+                    <LabourCareSummary />
                     <div className={styles.timeline}>
                         <div className={styles.timelineLabel}>Alert Time: {alertTime}</div>
                         <div className={styles.timelineLabel}>
@@ -176,127 +145,13 @@ export default function Tables({
                         </TableHead>
 
                         <TableBody>
-                            {/* Time Row */}
-                            {/* <TableRow className={styles.timeRow}>
-                                <TableCell className={styles.paramLabel}>
-                                    <strong>Time</strong>
-                                </TableCell>
-                                <TableCell>-</TableCell>
-                                {data.map((item, index) => (
-                                    <TableCell key={`time-${index}`} className={styles.dataCell}>
-                                        <input
-                                            type="time"
-                                            className={styles.timeInput}
-                                            defaultValue="12:00"
-                                        />
-                                    </TableCell>
-                                ))}
-                            </TableRow> */}
-
-                            <SupportiveCare data={[]} rowLength={rowLength} />
-                            <Baby data={[]} rowLength={rowLength} />
-                            <Woman data={[]} rowLength={rowLength} />
-                            <LabourProgress data={[]} rowLength={rowLength} />
-                            <Medication data={[]} rowLength={rowLength} />
-                            <SharedDecisionMaking data={[]} rowLength={rowLength} />
-                            <Initials data={[]} rowLength={rowLength} />
-
-                            {/* <TableRowData rowLabelText='TEST' data={data} abnormalValues={abnormalValues.baby.baselineFHR} rowLength={rowLength}/> */}
-
-                            {/* <TableRow className={styles.dataRow}>
-                                <TableCell className={styles.paramLabel}>
-                                    <strong>Pulse</strong>
-                                </TableCell>
-                                <TableCell className={styles.normalRange}>{normalRanges.pulse}</TableCell>
-                                {data.map((item, index) => (
-                                    <TableCell key={`pulse-${index}`} className={styles.dataCell}>
-                                        <input
-                                            type="text"
-                                            placeholder="-"
-                                            value={item.pulse}
-                                            onChange={(e) => handleInputChange(index, 'pulse', e.target.value)}
-                                            className={`${styles.input} ${isAbnormal(item.pulse, 'pulse') ? styles.abnormal : ''
-                                                }`}
-                                        />
-                                    </TableCell>
-                                ))}
-                            </TableRow>
-
-                            <TableRow className={styles.dataRow}>
-                                <TableCell className={styles.paramLabel}>
-                                    <strong>Systolic BP</strong>
-                                </TableCell>
-                                <TableCell className={styles.normalRange}>{normalRanges.systolicBP}</TableCell>
-                                {data.map((item, index) => (
-                                    <TableCell key={`systolic-${index}`} className={styles.dataCell}>
-                                        <input
-                                            type="text"
-                                            placeholder="-"
-                                            value={item.systolicBP}
-                                            onChange={(e) => handleInputChange(index, 'systolicBP', e.target.value)}
-                                            className={`${styles.input} ${isAbnormal(item.systolicBP, 'systolicBP') ? styles.abnormal : ''
-                                                }`}
-                                        />
-                                    </TableCell>
-                                ))}
-                            </TableRow>
-
-                            <TableRow className={styles.dataRow}>
-                                <TableCell className={styles.paramLabel}>
-                                    <strong>Diastolic BP</strong>
-                                </TableCell>
-                                <TableCell className={styles.normalRange}>{normalRanges.diastolicBP}</TableCell>
-                                {data.map((item, index) => (
-                                    <TableCell key={`diastolic-${index}`} className={styles.dataCell}>
-                                        <input
-                                            type="text"
-                                            placeholder="-"
-                                            value={item.diastolicBP}
-                                            onChange={(e) => handleInputChange(index, 'diastolicBP', e.target.value)}
-                                            className={`${styles.input} ${isAbnormal(item.diastolicBP, 'diastolicBP') ? styles.abnormal : ''
-                                                }`}
-                                        />
-                                    </TableCell>
-                                ))}
-                            </TableRow>
-
-                            <TableRow className={styles.dataRow}>
-                                <TableCell className={styles.paramLabel}>
-                                    <strong>Temperature °C</strong>
-                                </TableCell>
-                                <TableCell className={styles.normalRange}>{normalRanges.temperature}</TableCell>
-                                {data.map((item, index) => (
-                                    <TableCell key={`temp-${index}`} className={styles.dataCell}>
-                                        <input
-                                            type="text"
-                                            placeholder="-"
-                                            value={item.temperature}
-                                            onChange={(e) => handleInputChange(index, 'temperature', e.target.value)}
-                                            className={`${styles.input} ${isAbnormal(item.temperature, 'temperature') ? styles.abnormal : ''
-                                                }`}
-                                        />
-                                    </TableCell>
-                                ))}
-                            </TableRow>
-
-                            <TableRow className={styles.dataRow}>
-                                <TableCell className={styles.paramLabel}>
-                                    <strong>Urine</strong>
-                                </TableCell>
-                                <TableCell className={styles.normalRange}>{normalRanges.urine}</TableCell>
-                                {data.map((item, index) => (
-                                    <TableCell key={`urine-${index}`} className={styles.dataCell}>
-                                        <input
-                                            type="text"
-                                            placeholder="-"
-                                            value={item.urine}
-                                            onChange={(e) => handleInputChange(index, 'urine', e.target.value)}
-                                            className={`${styles.input} ${isAbnormal(item.urine, 'urine') ? styles.abnormal : ''
-                                                }`}
-                                        />
-                                    </TableCell>
-                                ))}
-                            </TableRow> */}
+                            <SupportiveCare rowLength={rowLength} encounters={encounters} />
+                            <Baby rowLength={rowLength} encounters={encounters} />
+                            <Woman rowLength={rowLength} encounters={encounters} />
+                            <LabourProgress rowLength={rowLength} encounters={encounters}/>
+                            <Medication rowLength={rowLength} encounters={encounters}/>
+                            <SharedDecisionMaking rowLength={rowLength} encounters={encounters} />
+                            <Initials rowLength={rowLength} encounters={encounters}/>
                         </TableBody>
                     </Table>
                 </div>

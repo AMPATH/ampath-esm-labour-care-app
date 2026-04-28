@@ -10,19 +10,55 @@ export const abnormalValues = {
     supportiveCare: {
         companion: {
             text: "N",
-            isAbnormal: (v) => v === "N"
+            isAbnormal: (v) => v === "N",
+            resolve: (v) => {
+                if (v.toUpperCase() === "NO") {
+                    return "N";
+                }
+                if (v.toUpperCase() === "YES") {
+                    return "Y";
+                }
+                return v;
+            }
         },
         painRelief: {
             text: "N",
-            isAbnormal: (v) => v === "N"
+            isAbnormal: (v) => v === "N",
+            resolve: (v) => {
+                if (v.toUpperCase() === "NO") {
+                    return "N";
+                }
+                if (v.toUpperCase() === "YES") {
+                    return "Y";
+                }
+                return v;
+            }
         },
         oralFluid: {
             text: "N",
-            isAbnormal: (v) => v === "N"
+            isAbnormal: (v) => v === "N",
+            resolve: (v) => {
+                if (v.toUpperCase() === "NO") {
+                    return "N";
+                }
+                if (v.toUpperCase() === "YES") {
+                    return "Y";
+                }
+                return v;
+            }
         },
         posture: {
             text: "SP",
-            isAbnormal: (v) => v === "SP"
+            isAbnormal: (v) => v === "SP",
+            resolve: (v) => {
+                if (v.toUpperCase() === "SUPINE POSITION") {
+                    return "SP";
+                }
+                if (v.toUpperCase() === "MOBILE POSITION") {
+                    return "MO";
+                }
+                return v;
+            }
         }
     },
     baby: {

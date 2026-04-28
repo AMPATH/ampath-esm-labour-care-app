@@ -1,14 +1,17 @@
 import React, { useMemo } from "react";
 import TableRowData from "../table-row.component";
 import { abnormalValues } from "../../utils";
-import { type RowValue } from "../../../types";
+import { type LabourEncounter, type RowValue } from "../../../types";
+import { useConfig } from "@openmrs/esm-framework";
+import { Config } from "../../../config-schema";
+import { getMappedRowValue } from "../../../resource/labour-care.resource";
 
 interface BabyProps {
-    data: Array<{}>;
     rowLength: {
         firstStage: Array<number>,
         secondStage: Array<number>
-    }
+    },
+    encounters: LabourEncounter[]
 }
 
 interface Baby {
@@ -20,11 +23,33 @@ interface Baby {
     moulding: Array<RowValue>;
 }
 
-const Baby: React.FC<BabyProps> = ({ data, rowLength }) => {
+const Baby: React.FC<BabyProps> = ({ encounters, rowLength }) => {
+    const { concepts } = useConfig<Config>();
     const baby = abnormalValues.baby;
     const mappedData = useMemo<Baby>(() => {
+        if (encounters) {
+            let results = {
+                baselineFHR: [],
+                FHRDeceleration: [],
+                amnioticFluid: [],
+                fetalPosition: [],
+                caput: [],
+                moulding: [],
+            }
+
+            encounters.map((encounter) => {
+                results.baselineFHR.push(getMappedRowValue(encounter, concepts.baselineFhrConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.FHRDeceleration.push(getMappedRowValue(encounter, concepts.fhrDecelerationConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.amnioticFluid.push(getMappedRowValue(encounter, concepts.amnioticFluidConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.fetalPosition.push(getMappedRowValue(encounter, concepts.fetalPositionConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.caput.push(getMappedRowValue(encounter, concepts.caputConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.moulding.push(getMappedRowValue(encounter, concepts.mouldingConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+            });
+
+            return results as Baby;
+        }
         return {} as Baby;
-    }, [data]);
+    }, [encounters]);
 
     return <>
         <h6>BABY</h6>

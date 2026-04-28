@@ -1,14 +1,17 @@
 import React, { useMemo } from "react";
 import TableRowData from "../table-row.component";
 import { abnormalValues } from "../../utils";
-import { type RowValue } from "../../../types";
+import { type LabourEncounter, type RowValue } from "../../../types";
+import { getMappedRowValue } from "../../../resource/labour-care.resource";
+import { useConfig } from "@openmrs/esm-framework";
+import { Config } from "../../../config-schema";
 
 interface WomanProps {
-    data: Array<{}>;
     rowLength: {
         firstStage: Array<number>,
         secondStage: Array<number>
-    }
+    },
+    encounters: LabourEncounter[]
 }
 
 interface Woman {
@@ -19,11 +22,31 @@ interface Woman {
     urine: Array<RowValue>;
 }
 
-const Woman: React.FC<WomanProps> = ({ data, rowLength }) => {
+const Woman: React.FC<WomanProps> = ({ encounters, rowLength }) => {
+    const { concepts } = useConfig<Config>();
     const woman = abnormalValues.woman;
     const mappedData = useMemo<Woman>(() => {
+        if (encounters) {
+            let results = {
+                pulse: [],
+                systolicBP: [],
+                diastolicBP: [],
+                temperature: [],
+                urine: []
+            }
+
+            encounters.map((encounter) => {
+                results.pulse.push(getMappedRowValue(encounter, concepts.pulseConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.systolicBP.push(getMappedRowValue(encounter, concepts.systolicBpConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.diastolicBP.push(getMappedRowValue(encounter, concepts.diastolicBpConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.temperature.push(getMappedRowValue(encounter, concepts.temperatureConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.urine.push(getMappedRowValue(encounter, concepts.urineProteinConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+            });
+
+            return results as Woman;
+        }
         return {} as Woman;
-    }, [data]);
+    }, [encounters]);
 
     return <>
         <h6>WOMAN</h6>

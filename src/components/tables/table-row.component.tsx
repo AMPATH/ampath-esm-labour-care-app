@@ -14,7 +14,9 @@ interface TableRowDataProps {
         isAbnormal: (v) => boolean;
     },
     data: Array<{
-        value: string
+        value: string,
+        timeSlot: number;
+        stage: Number;
     }>;
 }
 
@@ -25,17 +27,20 @@ const TableRowData: React.FC<TableRowDataProps> = ({ rowLabelText, rowLength, da
                 <strong>{rowLabelText}</strong>
             </TableCell>
             <TableCell className={styles.normalRange}>{abnormalValues ? abnormalValues.text : ``}</TableCell>
-            {rowLength.firstStage.map((timeSlot) => (
-                <TableCell key={`${rowLabelText}-${timeSlot}`} className={styles.dataCell}>
-                    <input
-                        type="text"
-                        placeholder="-"
-                        // value={timeSlot}
-                        disabled
-                        className={`${styles.input} ${(abnormalValues ? abnormalValues.isAbnormal("") : false) ? styles.abnormal : ''}`}
-                    />
-                </TableCell>
-            ))}
+            {rowLength.firstStage.map((timeSlot) => {
+                const value = data?.find(v => v?.timeSlot === timeSlot && v?.stage === 1)?.value;
+                return (
+                    <TableCell key={`${rowLabelText}-${timeSlot}`} className={styles.dataCell}>
+                        <input
+                            type="text"
+                            placeholder="-"
+                            value={value}
+                            disabled
+                            className={`${styles.input} ${(abnormalValues ? abnormalValues.isAbnormal(value) : false) ? styles.abnormal : ''}`}
+                        />
+                    </TableCell>
+                )
+            })}
             <p> </p>
             {rowLength.secondStage.map((timeSlot) => (
                 <TableCell key={`${rowLabelText}-${timeSlot}`} className={styles.dataCell}>

@@ -1,14 +1,17 @@
 import React, { useMemo } from "react";
 import TableRowData from "../table-row.component";
 import { abnormalValues } from "../../utils";
-import { type RowValue } from "../../../types";
+import { type LabourEncounter, type RowValue } from "../../../types";
+import { useConfig } from "@openmrs/esm-framework";
+import { Config } from "../../../config-schema";
+import { getMappedRowValue } from "../../../resource/labour-care.resource";
 
 interface LabourProgressProps {
-    data: Array<{}>;
     rowLength: {
         firstStage: Array<number>,
         secondStage: Array<number>
-    }
+    },
+    encounters: LabourEncounter[]
 }
 
 interface LabourProgress {
@@ -32,14 +35,60 @@ interface LabourProgress {
     },
 }
 
-const LabourProgress: React.FC<LabourProgressProps> = ({ data, rowLength }) => {
+const LabourProgress: React.FC<LabourProgressProps> = ({ encounters, rowLength }) => {
+    const { concepts } = useConfig<Config>();
     const labourProgress = abnormalValues.labourProgress;
     const mappedData = useMemo<LabourProgress>(() => {
+        if (encounters) {
+            let results = {
+                contractionsPer10Min: [],
+                durationOfContractions: [],
+                cervix: {
+                    cervix5: [],
+                    cervix6: [],
+                    cervix7: [],
+                    cervix8: [],
+                    cervix9: [],
+                    cervix10: [],
+                },
+                descent: {
+                    cervix0: [],
+                    cervix1: [],
+                    cervix2: [],
+                    cervix3: [],
+                    cervix4: [],
+                    cervix5: [],
+                }
+            }
+
+            encounters.map((encounter) => {
+                // contractions per 10 min
+                results.contractionsPer10Min.push(getMappedRowValue(encounter, concepts.contractionsPerTenMinConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                // duration of contractions
+                results.durationOfContractions.push(getMappedRowValue(encounter, concepts.contractionDurationConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                // cervix
+                results.cervix.cervix5.push(getMappedRowValue(encounter, concepts.cervicalDilationConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.cervix.cervix5.push(getMappedRowValue(encounter, concepts.cervicalDilationConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.cervix.cervix5.push(getMappedRowValue(encounter, concepts.cervicalDilationConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.cervix.cervix5.push(getMappedRowValue(encounter, concepts.cervicalDilationConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.cervix.cervix5.push(getMappedRowValue(encounter, concepts.cervicalDilationConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.cervix.cervix5.push(getMappedRowValue(encounter, concepts.cervicalDilationConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                // descent
+                results.descent.cervix0.push(getMappedRowValue(encounter, concepts.fetalDescentConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.descent.cervix1.push(getMappedRowValue(encounter, concepts.fetalDescentConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.descent.cervix2.push(getMappedRowValue(encounter, concepts.fetalDescentConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.descent.cervix3.push(getMappedRowValue(encounter, concepts.fetalDescentConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.descent.cervix4.push(getMappedRowValue(encounter, concepts.fetalDescentConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.descent.cervix5.push(getMappedRowValue(encounter, concepts.fetalDescentConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+            });
+
+            return results as LabourProgress;
+        }
         return {
             cervix: {},
             descent: {}
         } as LabourProgress;
-    }, [data]);
+    }, [encounters]);
 
     return <>
         <h6>LABOUR PROGRESS</h6>
