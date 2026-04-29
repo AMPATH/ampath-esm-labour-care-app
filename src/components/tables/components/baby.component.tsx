@@ -39,11 +39,11 @@ const Baby: React.FC<BabyProps> = ({ encounters, rowLength }) => {
 
             encounters.map((encounter) => {
                 results.baselineFHR.push(getMappedRowValue(encounter, concepts.baselineFhrConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
-                results.FHRDeceleration.push(getMappedRowValue(encounter, concepts.fhrDecelerationConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
-                results.amnioticFluid.push(getMappedRowValue(encounter, concepts.amnioticFluidConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
-                results.fetalPosition.push(getMappedRowValue(encounter, concepts.fetalPositionConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
-                results.caput.push(getMappedRowValue(encounter, concepts.caputConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
-                results.moulding.push(getMappedRowValue(encounter, concepts.mouldingConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.FHRDeceleration.push(getMappedRowValue(encounter, concepts.fhrDecelerationConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, baby.FHRDeceleration.resolve));
+                results.amnioticFluid.push(getMappedRowValue(encounter, concepts.amnioticFluidConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, baby.amnioticFluid.resolve));
+                results.fetalPosition.push(getMappedRowValue(encounter, concepts.fetalPositionConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, baby.fetalPosition.resolve));
+                results.caput.push(getMappedRowValue(encounter, concepts.caputConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, baby.caput.resolve));
+                results.moulding.push(getMappedRowValue(encounter, concepts.mouldingConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, baby.moulding.resolve));
             });
 
             return results as Baby;

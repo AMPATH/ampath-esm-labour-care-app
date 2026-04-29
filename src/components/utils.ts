@@ -54,7 +54,7 @@ export const abnormalValues = {
                 if (v.toUpperCase() === "SUPINE POSITION") {
                     return "SP";
                 }
-                if (v.toUpperCase() === "MOBILE POSITION") {
+                if (v.toUpperCase() === "MOBILE") {
                     return "MO";
                 }
                 return v;
@@ -68,23 +68,96 @@ export const abnormalValues = {
         },
         FHRDeceleration: {
             text: "L",
-            isAbnormal: (v) => v === "L"
+            isAbnormal: (v) => v === "L",
+            resolve: (v) => {
+                if (v.toUpperCase() === "NO") {
+                    return "N";
+                }
+                if (v.toUpperCase() === "EARLY FETAL HEART RATE DECELERATION") {
+                    return "E";
+                }
+                if (v.toUpperCase() === "LATE FETAL HEART RATE DECELERATION") {
+                    return "L";
+                }
+                if (v.toUpperCase() === "VARIABLE FETAL HEART RATE DECELERATION") {
+                    return "V";
+                }
+                return v;
+            }
         },
         amnioticFluid: {
             text: "M+++, B",
-            isAbnormal: (v) => ["M+++", "B"].includes(v)
+            isAbnormal: (v) => ["M+++", "B"].includes(v),
+            resolve: (v) => {
+                if (v.toUpperCase() === "AMNIOTIC MEMBRANE INTACT") {
+                    return "I";
+                }
+                if (v.toUpperCase() === "CLEAR FLUID") {
+                    return "C";
+                }
+                if (v.toUpperCase() === "MECONIUM STAINING") {
+                    // Further modification
+                    return "M+++";
+                }
+                if (v.toUpperCase() === "BLOODSTAINED AMNIOTIC FLUID") {
+                    return "B";
+                }
+                return v;
+            }
         },
         fetalPosition: {
             text: "P, T",
-            isAbnormal: (v) => ["P", "T"].includes(v)
+            isAbnormal: (v) => ["P", "T"].includes(v),
+            resolve: (v) => {
+                if (v.toUpperCase() === "OCCIPUT ANTERIOR POSITION") {
+                    return "A";
+                }
+                if (v.toUpperCase() === "OCCIPUT POSTERIOR POSITION") {
+                    return "P";
+                }
+                if (v.toUpperCase() === "TRANSVERSE LIE") {
+                    return "T";
+                }
+                return v;
+            }
         },
         caput: {
             text: "+++",
-            isAbnormal: (v) => v === "+++"
+            isAbnormal: (v) => v === "+++",
+            resolve: (v) => {
+                if (v.toUpperCase() === "NONE") {
+                    return "0";
+                }
+                if (v.toUpperCase() === "1+") {
+                    return "+";
+                }
+                if (v.toUpperCase() === "2+") {
+                    return "++";
+                }
+                if (v.toUpperCase() === "3+") {
+                    return "+++";
+                }
+                return v;
+            }
         },
         moulding: {
             text: "+++",
-            isAbnormal: (v) => v === "+++"
+            isAbnormal: (v) => v === "+++",
+            resolve: (v) => {
+                if (v.toUpperCase() === "NONE") {
+                    return "0";
+                }
+                if (v.toUpperCase() === "1+") {
+                    return "+";
+                }
+                if (v.toUpperCase() === "2+") {
+                    return "++";
+                }
+                if (v.toUpperCase() === "3+") {
+                    return "+++";
+                }
+                return v;
+            }
         },
     },
     woman: {

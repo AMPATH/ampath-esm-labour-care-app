@@ -113,11 +113,28 @@ export default function Tables({
                     <Table size="sm" className={styles.partographTable}>
                         <TableHead>
                             <TableRow>
-                                <TableCell className={styles.headerCell} style={{ width: '120px' }}>
-                                    <strong>Parameter</strong>
-                                </TableCell>
+                                <TableCell></TableCell>
+                                <TableCell><strong>Time</strong></TableCell>
+                                {rowLength.firstStage.map((v) => (
+                                    <TableCell key={`first-stage-time-header-${v}`} className={styles.headerCell}>
+                                        <div className={styles.timeColumn}>
+                                            <div>:</div>
+                                        </div>
+                                    </TableCell>
+                                ))}
+                                <p> </p>
+                                {rowLength.secondStage.map((v) => (
+                                    <TableCell key={`second-stage_time-header-${v}`} className={styles.headerCell}>
+                                        <div className={styles.timeColumn}>
+                                            <div>:</div>
+                                        </div>
+                                    </TableCell>
+                                ))}
+                            </TableRow>
+                            <TableRow>
+                                <TableCell className={styles.headerCell} style={{ width: '120px' }}></TableCell>
                                 <TableCell className={styles.headerCell} style={{ width: '100px' }}>
-                                    <strong>Alert</strong>
+                                    <strong>Hours</strong>
                                 </TableCell>
                                 {/* {data.map((_, index) => (
                                     <TableCell key={`header-${index}`} className={styles.timeHeader}>
@@ -142,16 +159,32 @@ export default function Tables({
                                     </TableCell>
                                 ))}
                             </TableRow>
+                            <TableRow>
+                                <TableCell></TableCell>
+                                <TableCell><strong>Alert</strong></TableCell>
+                                <TableCell className={styles.headerCell} colSpan={12}>
+                                    <div className={styles.timelineLabel}>
+                                        First Stage (Active): Hours {firstStageStart}-{parseInt(firstStageStart) + 11}
+                                    </div>
+                                </TableCell>
+                                <p> </p>
+
+                                <TableCell className={styles.headerCell} colSpan={3}>
+                                    <div className={styles.timelineLabel}>
+                                        Second Stage: Hours {secondStageStart}+
+                                    </div>
+                                </TableCell>
+                            </TableRow>
                         </TableHead>
 
                         <TableBody>
                             <SupportiveCare rowLength={rowLength} encounters={encounters} />
                             <Baby rowLength={rowLength} encounters={encounters} />
                             <Woman rowLength={rowLength} encounters={encounters} />
-                            <LabourProgress rowLength={rowLength} encounters={encounters}/>
-                            <Medication rowLength={rowLength} encounters={encounters}/>
+                            <LabourProgress rowLength={rowLength} encounters={encounters} />
+                            <Medication rowLength={rowLength} encounters={encounters} />
                             <SharedDecisionMaking rowLength={rowLength} encounters={encounters} />
-                            <Initials rowLength={rowLength} encounters={encounters}/>
+                            <Initials rowLength={rowLength} encounters={encounters} />
                         </TableBody>
                     </Table>
                 </div>
