@@ -190,12 +190,12 @@ export default function Tables({
                 </div>
 
                 {/* Action Buttons */}
-                <div className={styles.actions}>
+                {/* <div className={styles.actions}>
                     <Button onClick={() => window.print()}>Print Chart</Button>
                     <Button kind="secondary" onClick={() => setData(data.map(d => ({ ...d, pulse: '', systolicBP: '', diastolicBP: '', temperature: '', urine: '' })))}>
                         Clear Data
                     </Button>
-                </div>
+                </div> */}
             </Stack>
         </Layer>
     );
