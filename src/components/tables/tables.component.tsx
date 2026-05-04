@@ -81,10 +81,8 @@ export default function Tables({
             <Stack gap={5} className={styles.partographContainer}>
                 {/* Header with Timeline */}
                 <div className={styles.header}>
-                    <h2>Maternal Monitoring Chart</h2>
                     <LabourCareSummary />
                     <div className={styles.timeline}>
-                        <div className={styles.timelineLabel}>Alert Time: {alertTime}</div>
                         <div className={styles.timelineLabel}>
                             First Stage (Active): Hours {firstStageStart}-{parseInt(firstStageStart) + 11}
                         </div>

@@ -2,6 +2,8 @@ import { useLabourEncounter, getObsValueByConcept } from '../../resource/labour-
 import { useConfig, usePatient } from '@openmrs/esm-framework';
 import type { Config } from '../../config-schema';
 import React from 'react';
+import styles from './labour-summary.scss';
+import { Layer, Row } from '@carbon/react';
 
 const LabourCareSummary: React.FC = () => {
     const { concepts } = useConfig<Config>();
@@ -20,17 +22,21 @@ const LabourCareSummary: React.FC = () => {
     const inpatientNumber = "";
 
     return (
-        <div>
-            <p>Name: {name}</p>
-            <p>Parity: {parity}</p>
-            <p>Labour onset: {labourOnset}</p>
-            <p>Active labour diagnosis Date: {activeLabourDiagnosisDate}</p>
+        <Layer>
+            <Row className={styles.summaryRow}>
+                <p><strong>Name:</strong> {name}</p>
+                <p><strong>Parity:</strong> {parity}</p>
+                <p><strong>Labour onset:</strong> {labourOnset}</p>
+                <p><strong>Active labour diagnosis Date:</strong> {activeLabourDiagnosisDate}</p>
+            </Row>
 
-            <p>Ruptured membranes [Date: {rupturedMembraneDatetime} Time: ]</p>
-            <p>Risk factors: {riskFactors}</p>
-            <p>Gravida: {gravida}</p>
-            <p>IP (inpatient number): {inpatientNumber}</p>
-        </div>
+            <Row className={styles.summaryRow}>
+                <p><strong>Ruptured membranes</strong> [<strong>Date:</strong> {rupturedMembraneDatetime} Time: ]</p>
+                <p><strong>Risk factors:</strong> {riskFactors}</p>
+                <p><strong>Gravida:</strong> {gravida}</p>
+                <p><strong>IP (inpatient number):</strong> {inpatientNumber}</p>
+            </Row>
+        </Layer>
     );
 };
 
