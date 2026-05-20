@@ -1,9 +1,10 @@
 import { Button } from "@carbon/react"
 import { Add } from "@carbon/react/icons";
-import { launchWorkspace2 } from "@openmrs/esm-framework";
+import { launchWorkspace2, useConfig, usePatient } from "@openmrs/esm-framework";
 import React from "react"
 import { useTranslation } from "react-i18next"
 import styles from "./add-observation-action.scss";
+import { Config } from "../../config-schema";
 
 interface AddObservationActionProps {
     workspaceName: string;
@@ -12,10 +13,18 @@ interface AddObservationActionProps {
 
 const AddObservationAction: React.FC<AddObservationActionProps> = ({ workspaceName, mutated }) => {
     const { t } = useTranslation();
+    const { labourCareFormUuid } = useConfig<Config>();
+    const { patient, patientUuid } = usePatient();
 
     const handleLaunchWorkspace = () => {
-        launchWorkspace2(workspaceName, {
-            mutated
+        launchWorkspace2("patient-form-entry-workspace", {
+            form: {
+                uuid: labourCareFormUuid,
+                display: "Labour care guide"
+            },
+            patient,
+            patientUuid,
+            mutateVisitContext: mutated
         });
     }
 

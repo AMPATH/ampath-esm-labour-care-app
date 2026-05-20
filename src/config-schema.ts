@@ -7,6 +7,11 @@ export const configSchema = {
     _default: '26eeda6e-d490-47f3-bacd-058684be6d97',
     _description: 'Labour care encounter type'
   },
+  labourCareFormUuid: {
+    _type: Type.ConceptUuid,
+    _default: '8f3f771c-ec8c-3ffa-8ddc-723128c40d26',
+    _description: 'Labour care form entry'
+  },
   concepts: {
     // Labour stage and time slot
     labourDurationConceptUuid: {
@@ -213,6 +218,7 @@ export const configSchema = {
 
 export type Config = {
   encounterTypeUuid: string;
+  labourCareFormUuid: string;
   concepts: {
     // Labour stage and time slot
     labourDurationConceptUuid: string;
