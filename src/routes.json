@@ -38,7 +38,11 @@
       "component": "root",
       "online": true,
       "offline": true,
-      "order": 3
+      "order": 2,
+      "meta": {
+        "columns": 1,
+        "rows": 1
+      }
     }
   ],
   "pages": [],
