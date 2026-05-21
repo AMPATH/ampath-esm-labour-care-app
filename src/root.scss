@@ -13,3 +13,9 @@
 .explainer {
   margin-bottom: layout.$spacing-07;
 }
+
+// Very important for displaying maternity components in column
+[data-extension-slot-name='maternity-dashboard-slot'] {
+  display: flex;
+  flex-direction: column;
+}
