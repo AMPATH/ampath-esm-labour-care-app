@@ -6,19 +6,6 @@
   },
   "extensions": [
     {
-      "name": "labour-care-summary-dashboard",
-      "slot": "patient-chart-dashboard-slot",
-      "component": "patientChartLabourCareLink",
-      "meta": {
-        "slot": "patient-chart-labour-care-dashboard-slot",
-        "path": "Labour Care",
-        "layoutMode": "anchored"
-      },
-      "order": 17,
-      "online": true,
-      "offline": true
-    },
-    {
       "name": "labour-care-details-overview",
       "slot": "patient-chart-labour-care-dashboard-slot",
       "component": "root",

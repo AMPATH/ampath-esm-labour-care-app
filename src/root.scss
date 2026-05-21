@@ -16,6 +16,6 @@
 
 // Very important for displaying maternity components in column
 [data-extension-slot-name='maternity-dashboard-slot'] {
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  flex-direction: column !important;
 }
