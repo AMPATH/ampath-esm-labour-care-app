@@ -37,12 +37,7 @@
       "name": "labour-care-widget",
       "component": "root",
       "online": true,
-      "offline": true,
-      "order": 2,
-      "meta": {
-        "columns": 1,
-        "rows": 1
-      }
+      "offline": true
     }
   ],
   "pages": [],
