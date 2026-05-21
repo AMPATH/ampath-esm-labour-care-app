@@ -36,7 +36,6 @@
     {
       "name": "labour-care-widget",
       "component": "root",
-      "slot": "maternity-dashboard-slot",
       "online": true,
       "offline": true,
       "order": 3
