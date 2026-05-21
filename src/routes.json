@@ -32,6 +32,13 @@
       "order": 5,
       "online": true,
       "offline": true
+    },
+    {
+      "name": "labour-care-widget",
+      "component": "bloodPressureChart",
+      "slot": "maternity-dashboard-slot",
+      "online": true,
+      "offline": true
     }
   ],
   "pages": [],
