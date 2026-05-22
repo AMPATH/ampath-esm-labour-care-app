@@ -53,12 +53,12 @@ const Baby: React.FC<BabyProps> = ({ encounters, rowLength }) => {
 
     return <>
         <h6>BABY</h6>
-        <TableRowData rowLabelText='Baseline FHR' data={mappedData.baselineFHR} abnormalValues={baby.baselineFHR} rowLength={rowLength} />
-        <TableRowData rowLabelText='FHR Deceleration' data={mappedData.FHRDeceleration} abnormalValues={baby.FHRDeceleration} rowLength={rowLength} />
-        <TableRowData rowLabelText='Amniotic fluid' data={mappedData.amnioticFluid} abnormalValues={baby.amnioticFluid} rowLength={rowLength} />
-        <TableRowData rowLabelText='Fetal position' data={mappedData.fetalPosition} abnormalValues={baby.fetalPosition} rowLength={rowLength} />
-        <TableRowData rowLabelText='Caput' data={mappedData.caput} abnormalValues={baby.caput} rowLength={rowLength} />
-        <TableRowData rowLabelText='Moulding' data={mappedData.moulding} abnormalValues={baby.moulding} rowLength={rowLength} />
+        <TableRowData rowLabelText='Baseline FHR' data={mappedData.baselineFHR} abnormalValues={baby.baselineFHR} rowLength={rowLength} innerGrids={{ firstStageGrids: 2, secondStageGrids: 4 }} />
+        <TableRowData rowLabelText='FHR Deceleration' data={mappedData.FHRDeceleration} abnormalValues={baby.FHRDeceleration} rowLength={rowLength} innerGrids={{ firstStageGrids: 2, secondStageGrids: 4 }} />
+        <TableRowData rowLabelText='Amniotic fluid' data={mappedData.amnioticFluid} abnormalValues={baby.amnioticFluid} rowLength={rowLength} innerGrids={{ secondStageGrids: 2 }} />
+        <TableRowData rowLabelText='Fetal position' data={mappedData.fetalPosition} abnormalValues={baby.fetalPosition} rowLength={rowLength} innerGrids={{ secondStageGrids: 2 }} />
+        <TableRowData rowLabelText='Caput' data={mappedData.caput} abnormalValues={baby.caput} rowLength={rowLength} innerGrids={{ secondStageGrids: 2 }} />
+        <TableRowData rowLabelText='Moulding' data={mappedData.moulding} abnormalValues={baby.moulding} rowLength={rowLength} innerGrids={{ secondStageGrids: 2 }} />
     </>
 }
 

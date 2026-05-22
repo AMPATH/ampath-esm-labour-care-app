@@ -94,11 +94,12 @@
 }
 
 .dataCell {
-  padding: 0.25rem;
+  // padding: 0.25rem;
+  padding: 0px !important;
   border: 1px solid #d0d0d0;
   text-align: center;
   height: 44px;
-  min-width: 50px;
+  min-width: 100px;
 
   &:hover {
     background-color: #f0f7ff;
@@ -111,7 +112,7 @@
   border: none;
   text-align: center;
   font-size: 0.875rem;
-  padding: 0.25rem;
+  // padding: 0.25rem;
   font-family: monospace;
 
   &:focus {
@@ -184,5 +185,37 @@
 
   .actions {
     display: none;
+  }
+}
+
+.innerGrid {
+  display: grid;
+  // grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(var(--inner-grids), 1fr);
+  width: 100%;
+  height: 100%;
+}
+
+.innerCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid #e0e0e0;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &.abnormal {
+    background-color: #fee5e5;
+    color: #ae1212;
+    font-weight: 600;
+
+    &:focus {
+      outline: 2px solid #da1e28;
+    }
   }
 }
