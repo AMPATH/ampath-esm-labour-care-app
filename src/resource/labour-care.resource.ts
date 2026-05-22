@@ -21,6 +21,7 @@ export function getObsValueByConcept(encounter: LabourEncounter, conceptUuid: st
 }
 
 export function getStage(stage: string) {
+    stage = stage ?? "";
     if (stage.toUpperCase() === "FIRST STAGE OF LABOR") {
         return 1;
     }
