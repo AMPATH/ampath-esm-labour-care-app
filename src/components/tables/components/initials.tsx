@@ -25,8 +25,10 @@ const Initials: React.FC<InitialsProps> = ({ encounters, rowLength }) => {
                 initials: []
             }
 
+            const setConceptUuid = concepts.labourProgressConceptSetUuid;
+
             encounters.map((encounter) => {
-                results.initials.push(getMappedRowValue(encounter, "", concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.initials.push(getMappedRowValue(encounter, "", concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
             });
 
             return results as Initials;

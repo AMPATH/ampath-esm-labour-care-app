@@ -35,12 +35,14 @@ const Woman: React.FC<WomanProps> = ({ encounters, rowLength }) => {
                 urine: []
             }
 
+            const setConceptUuid = concepts.labourProgressConceptSetUuid;
+
             encounters.map((encounter) => {
-                results.pulse.push(getMappedRowValue(encounter, concepts.pulseConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
-                results.systolicBP.push(getMappedRowValue(encounter, concepts.systolicBpConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
-                results.diastolicBP.push(getMappedRowValue(encounter, concepts.diastolicBpConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
-                results.temperature.push(getMappedRowValue(encounter, concepts.temperatureConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
-                results.urine.push(getMappedRowValue(encounter, concepts.urineProteinConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.pulse.push(getMappedRowValue(encounter, concepts.pulseConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
+                results.systolicBP.push(getMappedRowValue(encounter, concepts.systolicBpConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
+                results.diastolicBP.push(getMappedRowValue(encounter, concepts.diastolicBpConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
+                results.temperature.push(getMappedRowValue(encounter, concepts.temperatureConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
+                results.urine.push(getMappedRowValue(encounter, concepts.urineProteinConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
             });
 
             return results as Woman;

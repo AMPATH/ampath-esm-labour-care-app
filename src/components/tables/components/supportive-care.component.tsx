@@ -35,11 +35,13 @@ const SupportiveCare: React.FC<SupportiveCareProps> = ({ rowLength, encounters }
                 posture: [],
             }
 
+            const setConceptUuid = concepts.labourProgressConceptSetUuid;
+
             encounters.map((encounter) => {
-                results.companion.push(getMappedRowValue(encounter, concepts.companionConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, supportiveCare.companion.resolve));
-                results.painRelief.push(getMappedRowValue(encounter, concepts.painReliefConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, supportiveCare.painRelief.resolve));
-                results.oralFluid.push(getMappedRowValue(encounter, concepts.oralFluidsConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, supportiveCare.oralFluid.resolve));
-                results.posture.push(getMappedRowValue(encounter, concepts.postureConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, supportiveCare.posture.resolve));
+                results.companion.push(getMappedRowValue(encounter, concepts.companionConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid, resolve: supportiveCare.companion.resolve }));
+                results.painRelief.push(getMappedRowValue(encounter, concepts.painReliefConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid, resolve: supportiveCare.painRelief.resolve }));
+                results.oralFluid.push(getMappedRowValue(encounter, concepts.oralFluidsConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid, resolve: supportiveCare.oralFluid.resolve }));
+                results.posture.push(getMappedRowValue(encounter, concepts.postureConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid, resolve: supportiveCare.posture.resolve }));
             });
 
             return results as SupportiveCare;

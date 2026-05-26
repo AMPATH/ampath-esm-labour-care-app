@@ -194,24 +194,112 @@ export const abnormalValues = {
         cervix: {
             cervix5: {
                 text: ">6h",
-                isAbnormal: (v) => parseFloat(v) > 6.0
+                isAbnormal: (v) => parseFloat(v) > 6.0,
+                resolve: (v) => {
+                    if (v == 5) {
+                        return "X"
+                    }
+                    return;
+                }
             },
             cervix6: {
                 text: ">5h",
-                isAbnormal: (v) => parseFloat(v) > 5.0
+                isAbnormal: (v) => parseFloat(v) > 5.0,
+                resolve: (v) => {
+                    if (v == 6) {
+                        return "X"
+                    }
+                    return;
+                }
             },
             cervix7: {
                 text: ">3h",
-                isAbnormal: (v) => parseFloat(v) > 3.0
+                isAbnormal: (v) => parseFloat(v) > 3.0,
+                resolve: (v) => {
+                    if (v == 7) {
+                        return "X"
+                    }
+                    return;
+                }
             },
             cervix8: {
                 text: ">2.5h",
-                isAbnormal: (v) => parseFloat(v) > 2.5
+                isAbnormal: (v) => parseFloat(v) > 2.5,
+                resolve: (v) => {
+                    if (v == 8) {
+                        return "X"
+                    }
+                    return;
+                }
             },
             cervix9: {
                 text: ">2h",
-                isAbnormal: (v) => parseFloat(v) > 2.0
+                isAbnormal: (v) => parseFloat(v) > 2.0,
+                resolve: (v) => {
+                    if (v == 9) {
+                        return "X"
+                    }
+                    return;
+                }
             },
+            cervix10: {
+                resolve: (v) => {
+                    if (v == 10) {
+                        return "X"
+                    }
+                    return;
+                }
+            }
+        },
+        descent: {
+            cervix0: {
+                resolve: (v) => {
+                    if (v == 0) {
+                        return "O"
+                    }
+                    return;
+                }
+            },
+            cervix1: {
+                resolve: (v) => {
+                    if (v == 1) {
+                        return "O"
+                    }
+                    return;
+                }
+            },
+            cervix2: {
+                resolve: (v) => {
+                    if (v == 2) {
+                        return "O"
+                    }
+                    return;
+                }
+            },
+            cervix3: {
+                resolve: (v) => {
+                    if (v == 3) {
+                        return "O"
+                    }
+                    return;
+                }
+            },
+            cervix4: {
+                resolve: (v) => {
+                    if (v == 4) {
+                        return "O"
+                    }
+                    return;
+                }
+            },
+            cervix5: {
+                resolve: (v) => {
+                    if (v == 5) {
+                        return "O"
+                    }
+                    return;
+                }
+            }
         }
     }
 }

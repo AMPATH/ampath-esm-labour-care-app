@@ -45,6 +45,7 @@ export interface Obs {
     interpretation: string | null;
     referenceRange: ReferenceRange | null;
     voided: boolean;
+    groupMembers: Array<Obs>;
 }
 
 interface EncounterProvider {

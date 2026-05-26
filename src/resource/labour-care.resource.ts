@@ -11,12 +11,16 @@ export function resolveObsValue(obs: Obs): string {
     return String(obs.value);
 }
 
-export function getObsByConcept(encounter: LabourEncounter, conceptUuid: string): Obs | undefined {
+export function getObsByConcept(encounter: LabourEncounter, conceptUuid: string, setConceptUuid: string = ""): Obs | undefined {
+    if (setConceptUuid) {
+        const setObs = encounter?.obs?.find((obs) => obs.concept.uuid === setConceptUuid);
+        return setObs?.groupMembers?.find((groupMember) => groupMember.concept.uuid === conceptUuid);
+    }
     return encounter?.obs?.find((obs) => obs.concept.uuid === conceptUuid);
 }
 
-export function getObsValueByConcept(encounter: LabourEncounter, conceptUuid: string): string | null {
-    const obs = getObsByConcept(encounter, conceptUuid);
+export function getObsValueByConcept(encounter: LabourEncounter, conceptUuid: string, setConceptUuid: string = ""): string | null {
+    const obs = getObsByConcept(encounter, conceptUuid, setConceptUuid);
     return obs ? resolveObsValue(obs) : null;
 }
 
@@ -31,8 +35,8 @@ export function getStage(stage: string) {
     return 0;
 }
 
-export function getMappedRowValue(encounter: LabourEncounter, conceptUuid: string, labourDurationConceptUuid: string, labourStageConceptUuid: string, resolve?: (v) => any) {
-    let rawValue = getObsValueByConcept(encounter, conceptUuid);
+export function getMappedRowValue(encounter: LabourEncounter, conceptUuid: string, labourDurationConceptUuid: string, labourStageConceptUuid: string, { setConceptUuid, resolve }: { setConceptUuid?: string, resolve?: (v) => any, } = {}) {
+    let rawValue = getObsValueByConcept(encounter, conceptUuid, setConceptUuid);
 
     if (resolve) {
         rawValue = resolve(rawValue ?? "");
@@ -40,8 +44,8 @@ export function getMappedRowValue(encounter: LabourEncounter, conceptUuid: strin
 
     return {
         value: rawValue,
-        timeSlot: Number(getObsValueByConcept(encounter, labourDurationConceptUuid)),
-        stage: getStage(getObsValueByConcept(encounter, labourStageConceptUuid))
+        timeSlot: Number(getObsValueByConcept(encounter, labourDurationConceptUuid, setConceptUuid)),
+        stage: getStage(getObsValueByConcept(encounter, labourStageConceptUuid, setConceptUuid))
     }
 }
 

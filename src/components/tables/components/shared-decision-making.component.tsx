@@ -27,9 +27,11 @@ const SharedDecisionMaking: React.FC<SharedDecisionMakingProps> = ({ encounters,
                 plan: [],
             }
 
+            const setConceptUuid = concepts.labourProgressConceptSetUuid;
+
             encounters.map((encounter) => {
-                results.assessment.push(getMappedRowValue(encounter, concepts.assessmentNotesConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
-                results.plan.push(getMappedRowValue(encounter, concepts.planNotesConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.assessment.push(getMappedRowValue(encounter, concepts.assessmentNotesConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
+                results.plan.push(getMappedRowValue(encounter, concepts.planNotesConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
             });
 
             return results as SharedDecisionMaking;

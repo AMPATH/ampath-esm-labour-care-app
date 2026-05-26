@@ -213,6 +213,11 @@ export const configSchema = {
       _default: '23f710cc-7f9c-4255-9b6b-c3e240215dba',
       _description: 'Therapeutic plan notes (freetext).',
     },
+    labourProgressConceptSetUuid: {
+      _type: Type.ConceptUuid,
+      _default: '2234d2e6-9c82-457c-84ad-23e30a251aa4',
+      _description: 'Labour progress set concept uuid.',
+    },
   },
 };
 
@@ -266,5 +271,7 @@ export type Config = {
     // Shared Decision-Making
     assessmentNotesConceptUuid: string;
     planNotesConceptUuid: string;
+
+    labourProgressConceptSetUuid: string;
   };
 };

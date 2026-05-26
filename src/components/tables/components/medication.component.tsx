@@ -29,10 +29,12 @@ const Medication: React.FC<MedicationProps> = ({ encounters, rowLength }) => {
                 ivFluids: [],
             }
 
+            const setConceptUuid = concepts.labourProgressConceptSetUuid;
+
             encounters.map((encounter) => {
-                results.oxytocin.push(getMappedRowValue(encounter, concepts.oxytocinAdministeredConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
-                results.medicine.push(getMappedRowValue(encounter, concepts.medicationConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
-                results.ivFluids.push(getMappedRowValue(encounter, concepts.ivFluidsAdministeredConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid));
+                results.oxytocin.push(getMappedRowValue(encounter, concepts.oxytocinAdministeredConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
+                results.medicine.push(getMappedRowValue(encounter, concepts.medicationConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
+                results.ivFluids.push(getMappedRowValue(encounter, concepts.ivFluidsAdministeredConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
             });
 
             return results as Medication;
