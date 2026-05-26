@@ -11,7 +11,7 @@ interface TableRowDataProps {
     columnKey?: string;
     abnormalValues?: {
         text: string;
-        isAbnormal: (v) => boolean;
+        isAbnormal: (v, timeSlot?) => boolean;
     },
     innerGrids?: {
         firstStageGrids?: number;
@@ -54,7 +54,7 @@ const TableRowData: React.FC<TableRowDataProps> = ({ rowLabelText, rowLength, da
                                     {
                                         getGrids(timeSlot, innerGrids.firstStageGrids).map((innerGrid) => {
                                             const gridValue = data?.find(v => v?.timeSlot === innerGrid && v?.stage === 1)?.value;
-                                            return <div className={`${styles.innerCell} ${abnormalValues?.isAbnormal(gridValue) ? styles.abnormal : ''}`}>
+                                            return <div className={`${styles.innerCell} ${abnormalValues?.isAbnormal(gridValue, timeSlot) ? styles.abnormal : ''}`}>
                                                 {gridValue ?? '-'}
                                             </div>
                                         })
@@ -66,7 +66,7 @@ const TableRowData: React.FC<TableRowDataProps> = ({ rowLabelText, rowLength, da
                                     placeholder="-"
                                     value={value}
                                     disabled
-                                    className={`${styles.input} ${(abnormalValues ? abnormalValues.isAbnormal(value) : false) ? styles.abnormal : ''}`}
+                                    className={`${styles.input} ${(abnormalValues ? abnormalValues.isAbnormal(value, timeSlot) : false) ? styles.abnormal : ''}`}
                                 />
                         }
                     </TableCell>
@@ -83,7 +83,7 @@ const TableRowData: React.FC<TableRowDataProps> = ({ rowLabelText, rowLength, da
                                     {
                                         getGrids(timeSlot, innerGrids.secondStageGrids).map((innerGrid) => {
                                             const gridValue = data?.find(v => v?.timeSlot === innerGrid && v?.stage === 2)?.value;
-                                            return <div className={`${styles.innerCell} ${abnormalValues?.isAbnormal(gridValue) ? styles.abnormal : ''}`}>
+                                            return <div className={`${styles.innerCell} ${abnormalValues?.isAbnormal(gridValue, timeSlot) ? styles.abnormal : ''}`}>
                                                 {gridValue ?? '-'}
                                             </div>
                                         })
@@ -93,9 +93,9 @@ const TableRowData: React.FC<TableRowDataProps> = ({ rowLabelText, rowLength, da
                                 <input
                                     type="text"
                                     placeholder="-"
-                                    // value={timeSlot}
+                                    value={value}
                                     disabled
-                                    className={`${styles.input} ${(abnormalValues ? abnormalValues.isAbnormal("") : false) ? styles.abnormal : ''}`}
+                                    className={`${styles.input} ${(abnormalValues ? abnormalValues.isAbnormal(value, timeSlot) : false) ? styles.abnormal : ''}`}
                                 />
                         }
                     </TableCell>

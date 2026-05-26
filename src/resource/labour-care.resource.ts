@@ -29,7 +29,7 @@ export function getStage(stage: string) {
     if (stage.toUpperCase() === "FIRST STAGE OF LABOR") {
         return 1;
     }
-    if (stage.toUpperCase() === "SECOND STAGE") {
+    if (stage.toUpperCase() === "SECOND STAGE OF LABOR") {
         return 2;
     }
     return 0;

@@ -194,7 +194,7 @@ export const abnormalValues = {
         cervix: {
             cervix5: {
                 text: ">6h",
-                isAbnormal: (v) => parseFloat(v) > 6.0,
+                isAbnormal: (v, timeSlot) => v && parseFloat(timeSlot) > 6,
                 resolve: (v) => {
                     if (v == 5) {
                         return "X"
@@ -204,7 +204,7 @@ export const abnormalValues = {
             },
             cervix6: {
                 text: ">5h",
-                isAbnormal: (v) => parseFloat(v) > 5.0,
+                isAbnormal: (v, timeSlot) => v && parseFloat(timeSlot) > 5,
                 resolve: (v) => {
                     if (v == 6) {
                         return "X"
@@ -214,7 +214,7 @@ export const abnormalValues = {
             },
             cervix7: {
                 text: ">3h",
-                isAbnormal: (v) => parseFloat(v) > 3.0,
+                isAbnormal: (v, timeSlot) => v && parseFloat(timeSlot) > 3,
                 resolve: (v) => {
                     if (v == 7) {
                         return "X"
@@ -224,7 +224,7 @@ export const abnormalValues = {
             },
             cervix8: {
                 text: ">2.5h",
-                isAbnormal: (v) => parseFloat(v) > 2.5,
+                isAbnormal: (v, timeSlot) => v && parseFloat(timeSlot) > 2.5,
                 resolve: (v) => {
                     if (v == 8) {
                         return "X"
@@ -234,7 +234,7 @@ export const abnormalValues = {
             },
             cervix9: {
                 text: ">2h",
-                isAbnormal: (v) => parseFloat(v) > 2.0,
+                isAbnormal: (v, timeSlot) => v && parseFloat(timeSlot) > 2,
                 resolve: (v) => {
                     if (v == 9) {
                         return "X"
