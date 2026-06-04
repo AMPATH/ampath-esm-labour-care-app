@@ -56,16 +56,12 @@
 }
 
 .timeHeader {
-  padding: 0.5rem 0.25rem;
-  color: white;
-  text-align: center;
   min-width: 50px;
+  position: relative;
 
   .timeColumn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
+    position: absolute;
+    right: 0;
 
     div {
       font-size: 0.75rem;
