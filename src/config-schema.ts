@@ -103,6 +103,16 @@ export const configSchema = {
       _default: 'c69e6dfd-7b03-40ae-a902-3cf72c79c136',
       _description: 'Visual inspection of amniotic fluid (Intact / Clear / Meconium / Blood).',
     },
+    meconiumStainedAmnioticFluidConceptUuid: {
+      _type: Type.ConceptUuid,
+      _default: '134488AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+      _description: 'Meconium amniotic fluid.',
+    },
+    meconiumClassificationConceptUuid: {
+      _type: Type.ConceptUuid,
+      _default: '465941a9-ac10-4e81-ab36-1bf83eaf4ed8',
+      _description: 'Meconium classification.',
+    },
     fetalPositionConceptUuid: {
       _type: Type.ConceptUuid,
       _default: 'a8b026a0-1350-11df-a1f1-0026b9348838',
@@ -254,6 +264,8 @@ export type Config = {
     fetalPositionConceptUuid: string;
     caputConceptUuid: string;
     mouldingConceptUuid: string;
+    meconiumStainedAmnioticFluidConceptUuid: string;
+    meconiumClassificationConceptUuid: string;
     // Woman's Vitals
     pulseConceptUuid: string;
     systolicBpConceptUuid: string;

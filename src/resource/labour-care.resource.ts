@@ -56,6 +56,7 @@ export function useLabourEncounter(patientUuid: string) {
     const { data, error, isLoading, isValidating, mutate } = useSWR<{ data: LabourEncounterResponse }, Error>(
         patientUuid ? url : null,
         openmrsFetch,
+        { refreshInterval: 5000 }
     );
 
     const encounters = data?.data?.results ?? [];

@@ -97,10 +97,28 @@ export const abnormalValues = {
                 }
                 if (v.toUpperCase() === "MECONIUM STAINING") {
                     // Further modification
-                    return "M+++";
+                    // value from Meconium Classification will be used here
+                    return "";
                 }
                 if (v.toUpperCase() === "BLOODSTAINED AMNIOTIC FLUID") {
                     return "B";
+                }
+                return v;
+            }
+        },
+        meconiumClassification: {
+            resolve: (v) => {
+                // d4e87600-26db-4a52-9772-e40fbafdd493
+                if (v.toUpperCase() === "MECONIUM STAINED LIQUOR, GRADE I") {
+                    return "M+";
+                }
+                // ebc1464c-0e42-429c-9d1e-9333806099ba
+                if (v.toUpperCase() === "MECONIUM STAINED LIQUOR, GRADE II") {
+                    return "M++";
+                }
+                // e66f41a6-51f4-43d9-9de4-bf379447e0c1
+                if (v.toUpperCase() === "MECONIUM STAINED LIQUOR, GRADE III") {
+                    return "M+++";
                 }
                 return v;
             }
