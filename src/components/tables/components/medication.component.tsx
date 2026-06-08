@@ -4,6 +4,7 @@ import { LabourEncounter, type RowValue } from "../../../types";
 import { getMappedRowValue } from "../../../resource/labour-care.resource";
 import { useConfig } from "@openmrs/esm-framework";
 import { Config } from "../../../config-schema";
+import styles from "./index.scss";
 
 interface MedicationProps {
     rowLength: {
@@ -43,7 +44,7 @@ const Medication: React.FC<MedicationProps> = ({ encounters, rowLength }) => {
     }, [encounters]);
 
     return <>
-        <h6>MEDICATION</h6>
+        <h6 className={styles.sectionTitle}>MEDICATION</h6>
         <TableRowData rowLabelText='Oxytocin (U/L, drops/min)' data={mappedData.oxytocin} rowLength={rowLength} />
         <TableRowData rowLabelText='Medicine' data={mappedData.medicine} rowLength={rowLength} />
         <TableRowData rowLabelText='IV fluids' data={mappedData.ivFluids} rowLength={rowLength} />

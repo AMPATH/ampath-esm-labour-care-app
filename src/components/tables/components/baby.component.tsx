@@ -5,6 +5,7 @@ import { type LabourEncounter, type RowValue } from "../../../types";
 import { useConfig } from "@openmrs/esm-framework";
 import { Config } from "../../../config-schema";
 import { getMappedRowValue } from "../../../resource/labour-care.resource";
+import styles from "./index.scss";
 
 interface BabyProps {
     rowLength: {
@@ -54,7 +55,7 @@ const Baby: React.FC<BabyProps> = ({ encounters, rowLength }) => {
     }, [encounters]);
 
     return <>
-        <h6>BABY</h6>
+        <h6 className={styles.sectionTitle}>BABY</h6>
         <TableRowData rowLabelText='Baseline FHR' data={mappedData.baselineFHR} abnormalValues={baby.baselineFHR} rowLength={rowLength} innerGrids={{ firstStageGrids: 2, secondStageGrids: 4 }} />
         <TableRowData rowLabelText='FHR Deceleration' data={mappedData.FHRDeceleration} abnormalValues={baby.FHRDeceleration} rowLength={rowLength} innerGrids={{ firstStageGrids: 2, secondStageGrids: 4 }} />
         <TableRowData rowLabelText='Amniotic fluid' data={mappedData.amnioticFluid} abnormalValues={baby.amnioticFluid} rowLength={rowLength} innerGrids={{ secondStageGrids: 2 }} />

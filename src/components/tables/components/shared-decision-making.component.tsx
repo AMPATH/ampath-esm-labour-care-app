@@ -4,6 +4,7 @@ import { type LabourEncounter, type RowValue } from "../../../types";
 import { getMappedRowValue } from "../../../resource/labour-care.resource";
 import { useConfig } from "@openmrs/esm-framework";
 import { Config } from "../../../config-schema";
+import styles from "./index.scss";
 
 interface SharedDecisionMakingProps {
     rowLength: {
@@ -40,7 +41,7 @@ const SharedDecisionMaking: React.FC<SharedDecisionMakingProps> = ({ encounters,
     }, [encounters]);
 
     return <>
-        <h6>SHARED-DECISION-MAKING</h6>
+        <h6 className={styles.sectionTitle}>SHARED-DECISION-MAKING</h6>
         <TableRowData rowLabelText='ASSESSMENT' data={mappedData.assessment} rowLength={rowLength} />
         <TableRowData rowLabelText='PLAN' data={mappedData.plan} rowLength={rowLength} />
     </>

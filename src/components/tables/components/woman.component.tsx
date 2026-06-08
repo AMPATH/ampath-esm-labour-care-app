@@ -5,6 +5,7 @@ import { type LabourEncounter, type RowValue } from "../../../types";
 import { getMappedRowValue } from "../../../resource/labour-care.resource";
 import { useConfig } from "@openmrs/esm-framework";
 import { Config } from "../../../config-schema";
+import styles from "./index.scss";
 
 interface WomanProps {
     rowLength: {
@@ -51,7 +52,7 @@ const Woman: React.FC<WomanProps> = ({ encounters, rowLength }) => {
     }, [encounters]);
 
     return <>
-        <h6>WOMAN</h6>
+        <h6 className={styles.sectionTitle}>WOMAN</h6>
         <TableRowData rowLabelText='Pulse' data={mappedData.pulse} abnormalValues={woman.pulse} rowLength={rowLength} innerGrids={{ secondStageGrids: 2 }} />
         <TableRowData rowLabelText='Systolic BP' data={mappedData.systolicBP} abnormalValues={woman.systolicBP} rowLength={rowLength} innerGrids={{ secondStageGrids: 2 }} />
         <TableRowData rowLabelText='Diastolic BP' data={mappedData.diastolicBP} abnormalValues={woman.diastolicBP} rowLength={rowLength} innerGrids={{ secondStageGrids: 2 }} />

@@ -4,6 +4,7 @@ import type { Config } from '../../config-schema';
 import React from 'react';
 import styles from './labour-summary.scss';
 import { Layer, Row } from '@carbon/react';
+import dayjs from 'dayjs';
 
 const LabourCareSummary: React.FC = () => {
     const { concepts } = useConfig<Config>();
@@ -15,7 +16,7 @@ const LabourCareSummary: React.FC = () => {
     const name = encounter.patient.display;
     const parity = getObsValueByConcept(encounter, concepts.parityConceptUuid);
     const labourOnset = getObsValueByConcept(encounter, concepts.labourOnsetConceptUuid);
-    const activeLabourDiagnosisDate = getObsValueByConcept(encounter, concepts.activeLabourDatetimeConceptUuid);
+    const activeLabourDiagnosisDate = dayjs(getObsValueByConcept(encounter, concepts.activeLabourDatetimeConceptUuid)).format("DD/MM/YYYY");
     const rupturedMembraneDatetime = getObsValueByConcept(encounter, concepts.rupturedMembranesDatetimeConceptUuid);
     const riskFactors = getObsValueByConcept(encounter, concepts.riskFactorsConceptUuid);
     const gravida = getObsValueByConcept(encounter, concepts.gravidaConceptUuid);

@@ -60,6 +60,11 @@ export const configSchema = {
       _default: 'a89ece64-1350-11df-a1f1-0026b9348838',
       _description: 'Start time of the labour care guide monitoring.',
     },
+    progressTimeConceptUuid: {
+      _type: Type.ConceptUuid,
+      _default: 'a89ece64-1350-11df-a1f1-0026b9348838',
+      _description: 'Time when a progress was recorded.',
+    },
     // ── Supportive Care ────────────────────────────────────────────────
     companionConceptUuid: {
       _type: Type.ConceptUuid,
@@ -236,6 +241,7 @@ export type Config = {
     rupturedMembranesDatetimeConceptUuid: string;
     riskFactorsConceptUuid: string;
     startTimeConceptUuid: string;
+    progressTimeConceptUuid: string;
     // Supportive Care
     companionConceptUuid: string;
     painReliefConceptUuid: string;

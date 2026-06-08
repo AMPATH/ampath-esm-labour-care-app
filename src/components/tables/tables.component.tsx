@@ -21,8 +21,10 @@ import Medication from './components/medication.component';
 import SharedDecisionMaking from './components/shared-decision-making.component';
 import Initials from './components/initials';
 import LabourCareSummary from '../summary/labour-summary.component';
-import { usePatient } from '@openmrs/esm-framework';
-import { useLabourEncounter } from '../../resource/labour-care.resource';
+import { useConfig, usePatient } from '@openmrs/esm-framework';
+import { getMappedRowValue, useLabourEncounter } from '../../resource/labour-care.resource';
+import { Config } from '../../config-schema';
+import dayjs from 'dayjs';
 
 interface VitalSign {
     time: string;
@@ -75,6 +77,21 @@ export default function Tables({
 
     if (!encounters) return null;
 
+    const { concepts } = useConfig<Config>();
+    const mappedProgressTime = useMemo(() => {
+        if (encounters) {
+            let progressTime = [];
+
+            const setConceptUuid = concepts.labourProgressConceptSetUuid;
+
+            encounters.map((encounter) => {
+                progressTime.push(getMappedRowValue(encounter, concepts.progressTimeConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
+            });
+
+            return progressTime;
+        }
+        return [];
+    }, [encounters]);
 
     return (
         <Layer>
@@ -113,21 +130,29 @@ export default function Tables({
                             <TableRow>
                                 <TableCell></TableCell>
                                 <TableCell><strong>Time</strong></TableCell>
-                                {rowLength.firstStage.map((v) => (
-                                    <TableCell key={`first-stage-time-header-${v}`} className={styles.headerCell}>
-                                        <div className={styles.timeColumn}>
-                                            <div>:</div>
-                                        </div>
-                                    </TableCell>
-                                ))}
+                                {rowLength.firstStage.map((v) => {
+                                    const progressTime = mappedProgressTime?.find(x => x.timeSlot == v && x.stage == 1)?.value;
+                                    const time = progressTime ? dayjs(progressTime).format('hh:mm a') : "";
+                                    return (
+                                        <TableCell key={`first-stage-time-header-${v}`} className={styles.headerCell}>
+                                            <div className={styles.timeColumn}>
+                                                <div>{time}</div>
+                                            </div>
+                                        </TableCell>
+                                    )
+                                })}
                                 <p> </p>
-                                {rowLength.secondStage.map((v) => (
-                                    <TableCell key={`second-stage_time-header-${v}`} className={styles.headerCell}>
-                                        <div className={styles.timeColumn}>
-                                            <div>:</div>
-                                        </div>
-                                    </TableCell>
-                                ))}
+                                {rowLength.secondStage.map((v) => {
+                                    const progressTime = mappedProgressTime?.find(x => x.timeSlot == v && x.stage == 2)?.value;
+                                    const time = progressTime ? dayjs(progressTime).format('hh:mm a') : "";
+                                    return (
+                                        <TableCell key={`second-stage-time-header-${v}`} className={styles.headerCell}>
+                                            <div className={styles.timeColumn}>
+                                                <div>{time}</div>
+                                            </div>
+                                        </TableCell>
+                                    )
+                                })}
                             </TableRow>
                             <TableRow>
                                 <TableCell className={styles.headerCell} style={{ width: '120px' }}></TableCell>

@@ -5,6 +5,7 @@ import { type LabourEncounter, type RowValue } from "../../../types";
 import { useConfig } from "@openmrs/esm-framework";
 import { Config } from "../../../config-schema";
 import { getMappedRowValue } from "../../../resource/labour-care.resource";
+import styles from "./index.scss";
 
 interface LabourProgressProps {
     rowLength: {
@@ -93,17 +94,17 @@ const LabourProgress: React.FC<LabourProgressProps> = ({ encounters, rowLength }
     }, [encounters]);
 
     return <>
-        <h6>LABOUR PROGRESS</h6>
+        <h6 className={styles.sectionTitle}>LABOUR PROGRESS</h6>
         <TableRowData rowLabelText='Contractions per 10 min' data={mappedData.contractionsPer10Min} abnormalValues={labourProgress.contractionsPer10Min} rowLength={rowLength} innerGrids={{ firstStageGrids: 2, secondStageGrids: 4 }} />
         <TableRowData rowLabelText='Duration of contractions' data={mappedData.durationOfContractions} abnormalValues={labourProgress.durationOfContractions} rowLength={rowLength} innerGrids={{ firstStageGrids: 2, secondStageGrids: 4 }} />
-        <p>Cervix [Plot X]</p>
+        <p className={styles.sectionTitle}>Cervix [Plot X]</p>
         <TableRowData rowLabelText='10' data={mappedData.cervix.cervix10} rowLength={rowLength} innerGrids={{ secondStageGrids: 4 }} />
         <TableRowData rowLabelText='9' data={mappedData.cervix.cervix9} abnormalValues={labourProgress.cervix.cervix9} rowLength={rowLength} />
         <TableRowData rowLabelText='8' data={mappedData.cervix.cervix8} abnormalValues={labourProgress.cervix.cervix8} rowLength={rowLength} />
         <TableRowData rowLabelText='7' data={mappedData.cervix.cervix7} abnormalValues={labourProgress.cervix.cervix7} rowLength={rowLength} />
         <TableRowData rowLabelText='6' data={mappedData.cervix.cervix6} abnormalValues={labourProgress.cervix.cervix6} rowLength={rowLength} />
         <TableRowData rowLabelText='5' data={mappedData.cervix.cervix5} abnormalValues={labourProgress.cervix.cervix5} rowLength={rowLength} />
-        <p>Descent [Plot O]</p>
+        <p className={styles.sectionTitle}>Descent [Plot O]</p>
         <TableRowData rowLabelText='5' data={mappedData.descent.cervix5} rowLength={rowLength} innerGrids={{ secondStageGrids: 2 }} />
         <TableRowData rowLabelText='4' data={mappedData.descent.cervix4} rowLength={rowLength} innerGrids={{ secondStageGrids: 2 }} />
         <TableRowData rowLabelText='3' data={mappedData.descent.cervix3} rowLength={rowLength} innerGrids={{ secondStageGrids: 2 }} />

@@ -4,6 +4,7 @@ import { type LabourEncounter, type RowValue } from "../../../types";
 import { getMappedRowValue } from "../../../resource/labour-care.resource";
 import { useConfig } from "@openmrs/esm-framework";
 import { Config } from "../../../config-schema";
+import styles from "./index.scss";
 
 interface InitialsProps {
     rowLength: {
@@ -37,7 +38,7 @@ const Initials: React.FC<InitialsProps> = ({ encounters, rowLength }) => {
     }, [encounters]);
 
     return <>
-        <h6>INITIALS</h6>
+        <h6 className={styles.sectionTitle}>INITIALS</h6>
         <TableRowData rowLabelText='INITIALS' data={mappedData.initials} rowLength={rowLength} />
     </>
 }

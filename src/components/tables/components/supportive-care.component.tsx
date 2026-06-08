@@ -1,11 +1,11 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import TableRowData from "../table-row.component";
 import { abnormalValues } from "../../utils";
-import { TableCell, TableRow } from "@carbon/react";
 import { type LabourEncounter, type RowValue } from "../../../types";
 import { useConfig } from "@openmrs/esm-framework";
 import { Config } from "../../../config-schema";
-import { getMappedRowValue, getObsValueByConcept } from "../../../resource/labour-care.resource";
+import { getMappedRowValue } from "../../../resource/labour-care.resource";
+import styles from "./index.scss";
 
 interface SupportiveCareProps {
     rowLength: {
@@ -50,7 +50,7 @@ const SupportiveCare: React.FC<SupportiveCareProps> = ({ rowLength, encounters }
     }, [encounters]);
 
     return <>
-        <h6>Supportive care</h6>
+        <h6 className={styles.sectionTitle}>Supportive care</h6>
         <TableRowData rowLabelText='Companion' data={mappedData.companion} abnormalValues={supportiveCare.companion} rowLength={rowLength} />
         <TableRowData rowLabelText='Pain relief' data={mappedData.painRelief} abnormalValues={supportiveCare.painRelief} rowLength={rowLength} />
         <TableRowData rowLabelText='Oral fluid' data={mappedData.oralFluid} abnormalValues={supportiveCare.oralFluid} rowLength={rowLength} />
