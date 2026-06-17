@@ -13,10 +13,9 @@
       "offline": true
     },
     {
-      "name": "blood-pressure-chart",
+      "name": "labour-care-chart",
       "slot": "labour-care-chart-slot",
-      "component": "bloodPressureChart",
-      "order": 5,
+      "component": "labourCare",
       "online": true,
       "offline": true
     },

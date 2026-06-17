@@ -46,19 +46,9 @@ export const patientChartLabourCareLink = getSyncLifecycle(
   options,
 );
 
-// Charts
-export const foetalHeartRateChart = getAsyncLifecycle(() => import('./components/charts/foetal-heart-rate/foetal-heart-rate.chart'), options);
-export const cervicalChart = getAsyncLifecycle(() => import('./components/charts/cervical/cervical.chart'), options);
-export const bloodPressureChart = getAsyncLifecycle(() => import('./components/charts/blood-pressure/blood-pressure.chart'), options);
+export const labourCare = getAsyncLifecycle(() => import('./components/labour-care.component'), options);
 
-// Datatables
-export const drugsAndFluidsDatatable = getAsyncLifecycle(() => import('./components/datatable/drugs-and-fluids/drugs-and-fluids.datatable'), options);
-export const membraneAmnioticFluidAndMouldingDatatable = getAsyncLifecycle(() => import('./components/datatable/membrane-amniotic-fluid-and-moulding/membrane-amniotic-fluid-and-moulding.datatable'), options);
-export const oxytocinDatatable = getAsyncLifecycle(() => import('./components/datatable/oxytocin/oxytocin.datatable'), options);
-export const temperatureDatatable = getAsyncLifecycle(() => import('./components/datatable/temperature/temperature.datatable'), options);
-export const urineDatatable = getAsyncLifecycle(() => import('./components/datatable/urine/urine.datatable'), options);
-
-// Workspaces
+// Workspaces - To be used later on when needed
 // Forms
 export const foetalHeartRateForm = getAsyncLifecycle(() => import('./components/workspaces/foetal-heart-rate-form/foetal-heart-rate-form.workspace'), options);
 export const cervicalForm = getAsyncLifecycle(() => import('./components/workspaces/cervical-form/cervical-form.workspace'), options);

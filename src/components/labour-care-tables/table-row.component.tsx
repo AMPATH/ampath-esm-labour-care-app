@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './tables.scss';
+import styles from './labour-care-tables.scss';
 import { TableRow, TableCell } from '@carbon/react';
 
 interface TableRowDataProps {

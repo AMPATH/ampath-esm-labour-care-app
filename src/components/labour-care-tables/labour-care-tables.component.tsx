@@ -6,13 +6,11 @@ import {
     TableRow,
     TableCell,
     Tag,
-    Button,
     Layer,
     Stack,
 } from '@carbon/react';
-import styles from './tables.scss';
-import TableRowData from './table-row.component';
-import { abnormalValues, getHoursLabels } from '../utils';
+import styles from './labour-care-tables.scss';
+import { getHoursLabels } from '../utils';
 import SupportiveCare from './components/supportive-care.component';
 import Baby from './components/baby.component';
 import Woman from './components/woman.component';
@@ -44,27 +42,12 @@ interface PartographProps {
     vitalSigns?: VitalSign[];
 }
 
-export default function Tables({
+export default function LabourCareTables({
     alertTime = '0:00',
     firstStageStart = '1',
     secondStageStart = '13',
     vitalSigns = [],
 }: PartographProps) {
-    const [data, setData] = useState<VitalSign[]>(
-        vitalSigns.length > 0
-            ? vitalSigns
-            : Array.from({ length: 15 }, (_, i) => ({
-                time: `${i}:00`,
-                hour: i,
-                pulse: '',
-                systolicBP: '',
-                diastolicBP: '',
-                temperature: '',
-                urine: '',
-                value: `${Math.floor(Math.random() * 200)}`,
-            }))
-    );
-
     const rowLength = useMemo(() => {
         return {
             firstStage: getHoursLabels(1, 12),
