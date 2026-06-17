@@ -39,11 +39,18 @@ const Woman: React.FC<WomanProps> = ({ encounters, rowLength }) => {
             const setConceptUuid = concepts.labourProgressConceptSetUuid;
 
             encounters.map((encounter) => {
+                const protein = getMappedRowValue(encounter, concepts.urineProteinConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid, resolve: woman.urine.protein.resolve });
+                const acetone = getMappedRowValue(encounter, concepts.urineAcetoneConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid, resolve: woman.urine.acetone.resolve });
+                const urine = {
+                    ...protein,
+                    value: `${protein.value}/${acetone.value}`
+                }
+
                 results.pulse.push(getMappedRowValue(encounter, concepts.pulseConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
                 results.systolicBP.push(getMappedRowValue(encounter, concepts.systolicBpConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
                 results.diastolicBP.push(getMappedRowValue(encounter, concepts.diastolicBpConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
                 results.temperature.push(getMappedRowValue(encounter, concepts.temperatureConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
-                results.urine.push(getMappedRowValue(encounter, concepts.urineProteinConceptUuid, concepts.labourDurationConceptUuid, concepts.labourStageConceptUuid, { setConceptUuid }));
+                results.urine.push(urine);
             });
 
             return results as Woman;

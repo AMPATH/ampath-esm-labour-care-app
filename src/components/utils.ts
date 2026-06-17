@@ -197,8 +197,48 @@ export const abnormalValues = {
         },
         urine: {
             text: "P++, A++",
-            isAbnormal: (v) => ["P++", "A++"].includes(v)
-        }
+            isAbnormal: (v) => /P\+\+(?!\+)|A\+\+(?!\+)/.test(v),
+            protein: {
+                resolve: (v) => {
+                    if (v.toUpperCase() === "NEGATIVE") {
+                        return "P-";
+                    }
+                    if (v.toUpperCase() === "TRACE") {
+                        return "P trace";
+                    }
+                    if (v === "1+") {
+                        return "P+";
+                    }
+                    if (v === "2+") {
+                        return "P++";
+                    }
+                    if (v === "3+") {
+                        return "P+++";
+                    }
+                    return v;
+                },
+            },
+            acetone: {
+                resolve: (v) => {
+                    if (v.toUpperCase() === "NEGATIVE") {
+                        return "A-";
+                    }
+                    if (v.toUpperCase() === "TRACE") {
+                        return "A trace";
+                    }
+                    if (v === "1+") {
+                        return "A+";
+                    }
+                    if (v === "2+") {
+                        return "A++";
+                    }
+                    if (v === "3+") {
+                        return "A+++";
+                    }
+                    return v;
+                },
+            }
+        },
     },
     labourProgress: {
         contractionsPer10Min: {
