@@ -55,7 +55,7 @@ const TableRowData: React.FC<TableRowDataProps> = ({ rowLabelText, rowLength, da
                                         getGrids(timeSlot, innerGrids.firstStageGrids).map((innerGrid) => {
                                             const gridValue = data?.find(v => v?.timeSlot === innerGrid && v?.stage === 1)?.value;
                                             return <div className={`${styles.innerCell} ${abnormalValues?.isAbnormal(gridValue, timeSlot) ? styles.abnormal : ''}`}>
-                                                {gridValue ?? '-'}
+                                                {gridValue ?? ''}
                                             </div>
                                         })
                                     }
@@ -63,7 +63,7 @@ const TableRowData: React.FC<TableRowDataProps> = ({ rowLabelText, rowLength, da
                                 :
                                 <input
                                     type="text"
-                                    placeholder="-"
+                                    placeholder=""
                                     value={value}
                                     disabled
                                     className={`${styles.input} ${(abnormalValues ? abnormalValues.isAbnormal(value, timeSlot) : false) ? styles.abnormal : ''}`}
@@ -84,7 +84,7 @@ const TableRowData: React.FC<TableRowDataProps> = ({ rowLabelText, rowLength, da
                                         getGrids(timeSlot, innerGrids.secondStageGrids).map((innerGrid) => {
                                             const gridValue = data?.find(v => v?.timeSlot === innerGrid && v?.stage === 2)?.value;
                                             return <div className={`${styles.innerCell} ${abnormalValues?.isAbnormal(gridValue, timeSlot) ? styles.abnormal : ''}`}>
-                                                {gridValue ?? '-'}
+                                                {gridValue ?? ''}
                                             </div>
                                         })
                                     }
@@ -92,7 +92,7 @@ const TableRowData: React.FC<TableRowDataProps> = ({ rowLabelText, rowLength, da
                                 :
                                 <input
                                     type="text"
-                                    placeholder="-"
+                                    placeholder=""
                                     value={value}
                                     disabled
                                     className={`${styles.input} ${(abnormalValues ? abnormalValues.isAbnormal(value, timeSlot) : false) ? styles.abnormal : ''}`}
