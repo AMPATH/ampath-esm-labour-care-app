@@ -45,7 +45,20 @@ export function getMappedRowValue(encounter: LabourEncounter, conceptUuid: strin
     return {
         value: rawValue,
         timeSlot: Number(getObsValueByConcept(encounter, labourDurationConceptUuid, setConceptUuid)),
-        stage: getStage(getObsValueByConcept(encounter, labourStageConceptUuid, setConceptUuid))
+        stage: getStage(getObsValueByConcept(encounter, labourStageConceptUuid, setConceptUuid)),
+        provider: getProvider(encounter)
+    }
+}
+
+export function getProvider(encounter: LabourEncounter) {
+    const display = encounter?.encounterProviders?.[0].provider.display;
+    const fullName = display.split("-")[2].trim();
+    const firstLetters = fullName.split(" ").map((l) => l.charAt(0));
+    const initials = firstLetters.join(".").toUpperCase();
+
+    return {
+        initials,
+        display
     }
 }
 
