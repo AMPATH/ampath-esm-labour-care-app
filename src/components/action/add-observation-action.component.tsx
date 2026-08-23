@@ -1,6 +1,6 @@
 import { Button } from "@carbon/react"
 import { Add } from "@carbon/react/icons";
-import { launchWorkspace2, useConfig, usePatient } from "@openmrs/esm-framework";
+import { launchWorkspace2, showSnackbar, useConfig, usePatient, useVisit } from "@openmrs/esm-framework";
 import React from "react"
 import { useTranslation } from "react-i18next"
 import styles from "./add-observation-action.scss";
@@ -15,8 +15,19 @@ const AddObservationAction: React.FC<AddObservationActionProps> = ({ workspaceNa
     const { t } = useTranslation();
     const { labourCareFormUuid } = useConfig<Config>();
     const { patient, patientUuid } = usePatient();
+    const { activeVisit } = useVisit(patientUuid);
 
     const handleLaunchWorkspace = () => {
+        if (!activeVisit) {
+            showSnackbar({
+                title: t("noActiveVisit", "No active visit"),
+                subtitle: t("startVisitToAddObservation", "Please start a visit for this patient before adding an observation"),
+                kind: "error",
+                isLowContrast: true
+            });
+            return;
+        }
+
         launchWorkspace2("patient-form-entry-workspace", {
             form: {
                 uuid: labourCareFormUuid,
@@ -24,6 +35,7 @@ const AddObservationAction: React.FC<AddObservationActionProps> = ({ workspaceNa
             },
             patient,
             patientUuid,
+            visitUuid: activeVisit.uuid,
             mutateVisitContext: mutated
         });
     }

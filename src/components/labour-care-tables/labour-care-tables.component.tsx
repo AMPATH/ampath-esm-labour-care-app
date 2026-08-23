@@ -19,7 +19,7 @@ import Medication from './components/medication.component';
 import SharedDecisionMaking from './components/shared-decision-making.component';
 import Initials from './components/initials';
 import LabourCareSummary from '../summary/labour-summary.component';
-import { useConfig, usePatient } from '@openmrs/esm-framework';
+import { useConfig, usePatient, useVisit } from '@openmrs/esm-framework';
 import { getMappedRowValue, useLabourEncounter } from '../../resource/labour-care.resource';
 import { Config } from '../../config-schema';
 import dayjs from 'dayjs';
@@ -56,7 +56,8 @@ export default function LabourCareTables({
     }, []);
 
     const { patientUuid } = usePatient();
-    const { encounters } = useLabourEncounter(patientUuid);
+    const { activeVisit } = useVisit(patientUuid ?? '');
+    const { encounters } = useLabourEncounter(patientUuid ?? '', activeVisit?.uuid);
 
     if (!encounters) return null;
 

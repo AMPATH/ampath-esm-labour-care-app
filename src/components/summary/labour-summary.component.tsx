@@ -1,5 +1,5 @@
 import { useLabourEncounter, getObsValueByConcept } from '../../resource/labour-care.resource';
-import { useConfig, usePatient } from '@openmrs/esm-framework';
+import { useConfig, usePatient, useVisit } from '@openmrs/esm-framework';
 import type { Config } from '../../config-schema';
 import React from 'react';
 import styles from './labour-summary.scss';
@@ -9,7 +9,8 @@ import dayjs from 'dayjs';
 const LabourCareSummary: React.FC = () => {
     const { concepts } = useConfig<Config>();
     const { patientUuid } = usePatient();
-    const { encounter } = useLabourEncounter(patientUuid);
+    const { activeVisit } = useVisit(patientUuid ?? '');
+    const { encounter } = useLabourEncounter(patientUuid ?? '', activeVisit?.uuid);
 
     if (!encounter) return null;
 

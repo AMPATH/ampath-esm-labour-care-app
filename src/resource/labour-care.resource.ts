@@ -62,9 +62,9 @@ export function getProvider(encounter: LabourEncounter) {
     }
 }
 
-export function useLabourEncounter(patientUuid: string) {
+export function useLabourEncounter(patientUuid: string, visitUuid?: string) {
     const { encounterTypeUuid } = useConfig<Config>();
-    const url = `${restBaseUrl}/encounter?encounterType=${encounterTypeUuid}&patient=${patientUuid}&v=full`;
+    const url = `${restBaseUrl}/encounter?encounterType=${encounterTypeUuid}&patient=${patientUuid}${visitUuid ? `&visit=${visitUuid}` : ''}&v=full`;
 
     const { data, error, isLoading, isValidating, mutate } = useSWR<{ data: LabourEncounterResponse }, Error>(
         patientUuid ? url : null,
