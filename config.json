@@ -1,0 +1,1871 @@
+{
+  "@openmrs/esm-patient-chart-app": {
+    "extensionSlots": {
+      "anc-dashboard-slot": {
+        "add": [
+          "encounter-list"
+        ],
+        "configure": {
+          "encounter-list": {
+            "tabDefinitions": [
+              {
+                "tabName": "ancInitial",
+                "hasFilter": false,
+                "headerTitle": "ancInitial",
+                "displayText": "ancInitial",
+                "encounterType": "f5702679-6a16-43bd-8629-4b44c7a78ff1",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC ANC Initial Encounter Form v 1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC ANC Initial Encounter Form v 1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "885ea751-a210-392f-be9c-d2abf78511e2"
+                  }
+                ]
+              },
+              {
+                "tabName": "ancReturn",
+                "hasFilter": false,
+                "headerTitle": "ancReturn",
+                "displayText": "ancReturn",
+                "encounterType": "226bfc6b-728d-41ab-90c5-e101af46d06d",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC ANC Return Form v1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC ANC Return Form v1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "1cd8dc61-9b92-37c1-9186-0a1b0114d64e"
+                  }
+                ]
+              }
+            ],
+            "Translation overrides": {
+              "en": {
+                "ancInitial": "ANC Initial",
+                "ancReturn": "ANC Return"
+              }
+            }
+          }
+        }
+      },
+      "cervical-cancer-dashboard-slot": {
+        "add": [
+          "encounter-list"
+        ],
+        "configure": {
+          "encounter-list": {
+            "tabDefinitions": [
+              {
+                "tabName": "cervicalCancerScreening",
+                "hasFilter": false,
+                "headerTitle": "cervicalCancerScreening",
+                "displayText": "cervicalCancerScreening",
+                "encounterType": "238625fc-8a25-44b2-aa5a-8bf48fa0e18d",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "ONCOLOGY POC Cervical Cancer Screening Form v1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "ONCOLOGY POC Cervical Cancer Screening Form v1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "04640e1c-de9b-4028-9506-296409e41761"
+                  }
+                ]
+              }
+            ],
+            "Translation overrides": {
+              "en": {
+                "cervicalCancerScreening": "Cervical Cancer Screening"
+              }
+            }
+          }
+        }
+      },
+      "action-menu-patient-chart-items-slot": {
+        "order": [
+          "order-basket-action-menu"
+        ]
+      },
+      "extra-visit-attribute-slot": {
+        "remove": [
+          "billing-checkin-form"
+        ]
+      },
+      "visit-form-bottom-slot": {
+        "remove": []
+      },
+      "cwc-dashboard-slot": {
+        "add": [
+          "encounter-list"
+        ],
+        "configure": {
+          "encounter-list": {
+            "tabDefinitions": [
+              {
+                "tabName": "cwc",
+                "hasFilter": false,
+                "headerTitle": "cwc",
+                "displayText": "cwc",
+                "encounterType": "5e019c94-0f80-49b7-8593-28100eb4f787",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "CWC Form",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "CWC Form",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "73b9bb98-d470-4aae-93f7-765afd374f39"
+                  }
+                ]
+              }
+            ],
+            "Translation overrides": {
+              "en": {
+                "cwc": "CWC"
+              }
+            }
+          }
+        }
+      },
+      "dental-dashboard-slot": {
+        "add": [
+          "encounter-list"
+        ],
+        "configure": {
+          "encounter-list": {
+            "tabDefinitions": [
+              {
+                "tabName": "dental",
+                "hasFilter": false,
+                "headerTitle": "dental",
+                "displayText": "dental",
+                "encounterType": "1c475619-98c2-482a-a6e9-e518923a7978",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC Dental Clinical Form v 1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC Dental Clinical Form v 1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "37eedbc6-8bd4-3592-992a-9d10d185574e"
+                  }
+                ]
+              }
+            ],
+            "Translation overrides": {
+              "en": {
+                "dental": "Dental"
+              }
+            }
+          }
+        }
+      },
+      "family-planning-dashboard-slot": {
+        "add": [
+          "encounter-list"
+        ],
+        "configure": {
+          "encounter-list": {
+            "tabDefinitions": [
+              {
+                "tabName": "familyPlanning",
+                "hasFilter": false,
+                "headerTitle": "familyPlanning",
+                "displayText": "familyPlanning",
+                "encounterType": "a8ab57df-a539-4a37-9eba-8f9ebd96809e",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC Family Planning Encounter Form v1.1",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC Family Planning Encounter Form v1.1",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "03a13d00-75a8-37b9-948e-75b6e1339435"
+                  }
+                ]
+              }
+            ],
+            "Translation overrides": {
+              "en": {
+                "familyPlanning": "Family Planning"
+              }
+            }
+          }
+        }
+      },
+      "general-opd-consultation-dashboard-slot": {
+        "add": [
+          "encounter-list"
+        ],
+        "configure": {
+          "encounter-list": {
+            "tabDefinitions": [
+              {
+                "tabName": "Consultation Form",
+                "hasFilter": false,
+                "headerTitle": "consultationForm",
+                "displayText": "consultationForm",
+                "encounterType": "465a92f2-baf8-42e9-9612-53064be868e8",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "Forms",
+                        "package": "hiv-care-treatment",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "Forms",
+                        "package": "hiv-care-treatment",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "fb7287ac-ee2a-3015-aecd-414c4028949a"
+                  }
+                ]
+              },
+              {
+                "tabName": "cardex",
+                "hasFilter": false,
+                "headerTitle": "cardex",
+                "displayText": "cardex",
+                "encounterType": "64e0f9f4-5f25-4098-bbca-ba8db6ce1696",
+                "columns": [
+                  {
+                    "id": "encounterDate",
+                    "title": "encounterDateTitle",
+                    "type": "encounterDatetime"
+                  },
+                  {
+                    "id": "provider",
+                    "title": "providerTitle",
+                    "type": "provider"
+                  },
+                  {
+                    "id": "notes",
+                    "title": "notesTitle",
+                    "concept": "23f710cc-7f9c-4255-9b6b-c3e240215dba"
+                  },
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "AMPATH POC Cardex Form v1.0",
+                        "package": "hiv-care-treatment",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "AMPATH POC Cardex Form v1.0",
+                        "package": "hiv-care-treatment",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "73f5380c-b5d8-3c4a-aea2-ffab091c7d98"
+                  }
+                ]
+              }
+            ],
+            "Translation overrides": {
+              "en": {
+                "timeline": "Timeline",
+                "clinicalNotes": "Clinical Notes",
+                "proceduresOrders": "Procedures & Orders",
+                "labResults": "Lab Results",
+                "prescription": "Prescription",
+                "managementPlan": "Management Plan",
+                "forms": "Forms",
+                "programManagement": "Program Management",
+                "cardex": "Cardex",
+                "patientRecords": "Patient Records",
+                "reasonForVisitTitle": "Reason for Visit",
+                "chiefComplaintTitle": "Chief Complaint",
+                "currentVisitTypeTitle": "Current Visit Type",
+                "reviewOfMedicalHistoryTitle": "Review of Medical History",
+                "bloodTransfusionEverTitle": "Blood Transfusion, Ever",
+                "previouslyHospitalizedTitle": "Previously Hospitalized",
+                "historyOfSurgeriesTitle": "History of Surgeries",
+                "referralForTodaysVisitTitle": "Referral for Today's Visit",
+                "herbalMedicationConsumptionTitle": "Herbal Medication Consumption",
+                "patientReportedSideEffectTitle": "Patient Reported Side Effect",
+                "infantFeedingMethodTitle": "Infant Feeding Method",
+                "reviewOfSystemsDevelopmentalTitle": "Review of Systems, Developmental"
+              }
+            }
+          }
+        }
+      },
+      "general-opd-triage-dashboard-slot": {
+        "add": [
+          "encounter-list"
+        ],
+        "configure": {
+          "encounter-list": {
+            "tabDefinitions": [
+              {
+                "tabName": "vitals",
+                "hasFilter": false,
+                "headerTitle": "vitals",
+                "displayText": "vitals",
+                "encounterType": "8a43b09b-2d9f-487c-a1c3-d6bf220671a7",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "AMPATH POC Vitals Form v1.0",
+                        "package": "hiv-care-treatment",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "AMPATH POC Vitals Form v1.0",
+                        "package": "hiv-care-treatment",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "86eb8839-6c4a-3300-b95d-fdac06e4a408"
+                  }
+                ]
+              },
+              {
+                "tabName": "tbScreening",
+                "hasFilter": false,
+                "headerTitle": "tbScreening",
+                "displayText": "tbScreening",
+                "encounterType": "e47b6229-cfb8-446f-a51c-194a28e465d5",
+                "columns": [
+                  {
+                    "id": "Assessment",
+                    "title": "assessmentTitle",
+                    "concept": "a8afcafc-1350-11df-a1f1-0026b9348838"
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "25b243bb-a913-3c04-94dd-7013dca86560"
+                  }
+                ]
+              },
+              {
+                "tabName": "nutritionAssessment",
+                "hasFilter": false,
+                "headerTitle": "nutritionAssessment",
+                "displayText": "nutritionAssessment",
+                "encounterType": "3cd9dd0a-a5d1-4482-9f45-a0fea4f5e556",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC Nutrition Assessment Form v1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC Nutrition Assessment Form v1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "acbbc172-2c87-3594-8fd8-4148a3dd5e62"
+                  }
+                ]
+              },
+              {
+                "tabName": "cadex",
+                "hasFilter": false,
+                "headerTitle": "cadex",
+                "displayText": "cadex",
+                "encounterType": "64e0f9f4-5f25-4098-bbca-ba8db6ce1696",
+                "columns": [
+                  {
+                    "id": "encounterDate",
+                    "title": "encounterDateTitle",
+                    "type": "encounterDatetime"
+                  },
+                  {
+                    "id": "provider",
+                    "title": "providerTitle",
+                    "type": "provider"
+                  },
+                  {
+                    "id": "notes",
+                    "title": "notesTitle",
+                    "concept": "23f710cc-7f9c-4255-9b6b-c3e240215dba"
+                  },
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "AMPATH POC Cardex Form v1.0",
+                        "package": "hiv-care-treatment",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "AMPATH POC Cardex Form v1.0",
+                        "package": "hiv-care-treatment",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "73f5380c-b5d8-3c4a-aea2-ffab091c7d98"
+                  }
+                ]
+              }
+            ],
+            "Translation overrides": {
+              "en": {
+                "vitals": "Vitals",
+                "tbScreening": "TB Screening",
+                "nutritionAssessment": "Nutrition Assessment",
+                "cadex": "CADEx",
+                "encounterDateTitle": "Encounter Date",
+                "providerTitle": "Provider"
+              }
+            }
+          }
+        }
+      },
+      "hts-dashboard-slot": {
+        "add": [
+          "encounter-list"
+        ],
+        "configure": {
+          "encounter-list": {
+            "tabDefinitions": [
+              {
+                "tabName": "htsEligibilityScreening",
+                "hasFilter": false,
+                "headerTitle": "htsEligibilityScreening",
+                "displayText": "htsEligibilityScreening",
+                "encounterType": "9c0a7a57-62ff-4f75-babe-5835b0e921b7",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC HTS Eligibility Screening Form v1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC HTS Eligibility Screening Form v1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "7a16a346-0991-48ac-b339-aacd463a7845"
+                  }
+                ]
+              },
+              {
+                "tabName": "htsInitialTest",
+                "hasFilter": false,
+                "headerTitle": "htsInitialTest",
+                "displayText": "htsInitialTest",
+                "encounterType": "9c0a7a57-62ff-4f75-babe-5835b0e921b7",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC HTS Initial Test form v 1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC HTS Initial Test form v 1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "edb264d4-91fc-4d16-bb34-a413eef2b865"
+                  }
+                ]
+              },
+              {
+                "tabName": "htsRetest",
+                "hasFilter": false,
+                "headerTitle": "htsRetest",
+                "displayText": "htsRetest",
+                "encounterType": "9c0a7a57-62ff-4f75-babe-5835b0e921b7",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC HTS Retest Form v1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC HTS Retest Form v1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "9b1258a3-e181-4dec-af70-8538c4735e38"
+                  }
+                ]
+              },
+              {
+                "tabName": "htsReferral",
+                "hasFilter": false,
+                "headerTitle": "htsReferral",
+                "displayText": "htsReferral",
+                "encounterType": "9c0a7a57-62ff-4f75-babe-5835b0e921b7",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC HTS Referral form v 1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC HTS Referral form v 1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "3b688533-0de1-4c3e-b75a-c5b865080d80"
+                  }
+                ]
+              },
+              {
+                "tabName": "htsLinkage",
+                "hasFilter": false,
+                "headerTitle": "htsLinkage",
+                "displayText": "htsLinkage",
+                "encounterType": "9c0a7a57-62ff-4f75-babe-5835b0e921b7",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC HTS Linkage form v 1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC HTS Linkage form v 1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "6c82c396-45dc-476b-abc4-84c2b71992c5"
+                  }
+                ]
+              }
+            ],
+            "Translation overrides": {
+              "en": {
+                "htsEligibilityScreening": "Eligibility Screening",
+                "htsInitialTest": "Initial Test",
+                "htsRetest": "Retest",
+                "htsReferral": "Referral",
+                "htsLinkage": "Linkage"
+              }
+            }
+          }
+        }
+      },
+      "immunisation-dashboard-slot": {
+        "add": [
+          "encounter-list"
+        ],
+        "configure": {
+          "encounter-list": {
+            "tabDefinitions": [
+              {
+                "tabName": "immunisation",
+                "hasFilter": false,
+                "headerTitle": "immunisation",
+                "displayText": "immunisation",
+                "encounterType": "39d11cc0-300e-42a0-9b13-03661f45d264",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC MNCH Immunization Form v 1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC MNCH Immunization Form v 1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "242089db-a197-3948-90e4-230342859ba8"
+                  }
+                ]
+              }
+            ],
+            "Translation overrides": {
+              "en": {
+                "immunisation": "Immunisation"
+              }
+            }
+          }
+        }
+      },
+      "maternity-dashboard-slot": {
+        "add": [
+          "encounter-list",
+          "labour-care-widget"
+        ],
+        "order": [
+          "encounter-list",
+          "labour-care-widget"
+        ],
+        "configure": {
+          "encounter-list": {
+             "slot": {
+              "columns": 1,
+              "rows": 1
+            },
+            "tabDefinitions": [
+              {
+                "tabName": "maternityAdmission",
+                "hasFilter": false,
+                "headerTitle": "maternityAdmission",
+                "displayText": "maternityAdmission",
+                "encounterType": "1bf4f1f6-8965-4fb4-a7f0-29d31fefb1a3",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC Maternity Admission Form v1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC Maternity Admission Form v1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "3a9cbd83-4e6b-3f94-97be-e994680e3522"
+                  }
+                ]
+              },
+              {
+                "tabName": "cadex",
+                "hasFilter": false,
+                "headerTitle": "cadex",
+                "displayText": "cadex",
+                "encounterType": "64e0f9f4-5f25-4098-bbca-ba8db6ce1696",
+                "columns": [
+                  {
+                    "id": "encounterDate",
+                    "title": "encounterDateTitle",
+                    "type": "encounterDatetime"
+                  },
+                  {
+                    "id": "provider",
+                    "title": "providerTitle",
+                    "type": "provider"
+                  },
+                  {
+                    "id": "admissionDate",
+                    "title": "admissionDateTitle",
+                    "concept": "a8a01652-1350-11df-a1f1-0026b9348838"
+                  },
+                  {
+                    "id": "notes",
+                    "title": "notesTitle",
+                    "concept": "23f710cc-7f9c-4255-9b6b-c3e240215dba"
+                  },
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "AMPATH POC Cardex Form v1.0",
+                        "package": "hiv-care-treatment",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "AMPATH POC Cardex Form v1.0",
+                        "package": "hiv-care-treatment",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "73f5380c-b5d8-3c4a-aea2-ffab091c7d98"
+                  }
+                ]
+              },
+              {
+                "tabName": "vitals",
+                "hasFilter": false,
+                "headerTitle": "vitals",
+                "displayText": "vitals",
+                "encounterType": "8a43b09b-2d9f-487c-a1c3-d6bf220671a7",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "AMPATH POC Vitals Form v1.0",
+                        "package": "hiv-care-treatment",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "AMPATH POC Vitals Form v1.0",
+                        "package": "hiv-care-treatment",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "86eb8839-6c4a-3300-b95d-fdac06e4a408"
+                  }
+                ]
+              },
+              {
+                "tabName": "lcg",
+                "hasFilter": false,
+                "headerTitle": "lcg",
+                "displayText": "lcg",
+                "encounterType": "26eeda6e-d490-47f3-bacd-058684be6d97",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC WHO Labour Care Guide v1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC WHO Labour Care Guide v1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "8f3f771c-ec8c-3ffa-8ddc-723128c40d26"
+                  }
+                ]
+              },
+              {
+                "tabName": "maternityLabourDelivery",
+                "hasFilter": false,
+                "headerTitle": "maternityLabourDelivery",
+                "displayText": "maternityLabourDelivery",
+                "encounterType": "2b928d9b-84ce-4777-9658-3fba6248b3bc",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC Maternity Labour And Delivery Form v1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC Maternity Labour And Delivery Form v1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "45779c69-2ab4-3418-9846-5462c0ee04cf"
+                  }
+                ]
+              },
+              {
+                "tabName": "maternityDischarge",
+                "hasFilter": false,
+                "headerTitle": "maternityDischarge",
+                "displayText": "maternityDischarge",
+                "encounterType": "e3c2a17f-4d58-4725-b702-a5d75a2231d0",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC Maternity Discharge Form v1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC Maternity Discharge Form v1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "a6f7d96d-7d6e-3c51-9786-7b817515ff5b"
+                  }
+                ]
+              }
+            ],
+            "Translation overrides": {
+              "en": {
+                "maternityAdmission": "Maternity Admission",
+                "cadex": "Cardex",
+                "vitals": "Vitals",
+                "lcg": "LCG",
+                "maternityLabourDelivery": "Labour and delivery form",
+                "maternityDischarge": "Discharge",
+                "admissionDateTitle": "Admission Date",
+                "encounterDateTitle": "Encounter Date",
+                "providerTitle": "Provider"
+              }
+            }
+          },
+          "labour-care-widget": {
+            "title": "Labour Care Guide"
+          }
+        }
+      },
+      "ncd-dashboard-slot": {
+        "add": [
+          "encounter-list"
+        ],
+        "configure": {
+          "encounter-list": {
+            "tabDefinitions": [
+              {
+                "tabName": "ncdEnrollment",
+                "hasFilter": false,
+                "headerTitle": "ncdEnrollment",
+                "displayText": "ncdEnrollment",
+                "encounterType": "5444d069-1317-4838-addf-f2bca42a48a2",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC NCD Enrollment Form v1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC NCD Enrollment Form v1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "9f6694d0-5f6f-3304-b6af-166d23209a69"
+                  }
+                ]
+              },
+              {
+                "tabName": "ncdFollowUp",
+                "hasFilter": false,
+                "headerTitle": "ncdFollowUp",
+                "displayText": "ncdFollowUp",
+                "encounterType": "04f60e38-70cd-4b8d-aa7e-9c408b349271",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC NCD Follow Up Form v1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC NCD Follow Up Form v1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "9c75d77f-1a27-3528-9065-703a8f816c2f"
+                  }
+                ]
+              }
+            ],
+            "Translation overrides": {
+              "en": {
+                "ncdEnrollment": "NCD Enrollment",
+                "ncdFollowUp": "NCD Follow Up"
+              }
+            }
+          }
+        }
+      },
+      "patient-chart-dashboard-slot": {
+        "add": [
+          "nav-group#GeneralMedicine",
+          "nav-group#MNCH",
+          "nav-group#ChronicDiseaseCentre",
+          "nav-group#HTS"
+        ],
+        "order": [
+          "nav-group#GeneralMedicine",
+          "nav-group#MNCH",
+          "nav-group#ChronicDiseaseCentre",
+          "nav-group#HTS"
+        ],
+        "configure": {
+          "nav-group#GeneralMedicine": {
+            "title": "generalMedicine",
+            "slotName": "general-medicine-group-slot",
+            "isExpanded": true,
+            "Translation overrides": {
+              "en": {
+                "generalMedicine": "General Medicine"
+              }
+            }
+          },
+          "nav-group#MNCH": {
+            "title": "mnch",
+            "slotName": "mnch-group-slot",
+            "isExpanded": true,
+            "Translation overrides": {
+              "en": {
+                "mnch": "MNCH"
+              }
+            }
+          },
+          "nav-group#ChronicDiseaseCentre": {
+            "title": "chronicDiseaseCentre",
+            "slotName": "chronic-disease-centre-group-slot",
+            "isExpanded": true,
+            "Translation overrides": {
+              "en": {
+                "chronicDiseaseCentre": "Chronic Disease Centre"
+              }
+            }
+          },
+          "nav-group#HTS": {
+            "title": "hts",
+            "slotName": "hts-group-slot",
+            "isExpanded": true,
+            "Translation overrides": {
+              "en": {
+                "hts": "HTS"
+              }
+            }
+          }
+        }
+      },
+      "general-medicine-group-slot": {
+        "add": [
+          "dashboard#general-opd-triage",
+          "dashboard#general-opd-consultation",
+          "dashboard#tb-treatment",
+          "dashboard#dental"
+        ],
+        "order": [
+          "dashboard#general-opd-triage",
+          "dashboard#general-opd-consultation",
+          "dashboard#tb-treatment",
+          "dashboard#dental"
+        ],
+        "configure": {
+          "dashboard#general-opd-triage": {
+            "title": "generalOpdTriage",
+            "path": "general-opd-triage",
+            "slot": "general-opd-triage-dashboard-slot",
+            "Translation overrides": {
+              "en": {
+                "generalOpdTriage": "Triage"
+              }
+            }
+          },
+          "dashboard#general-opd-consultation": {
+            "title": "generalOpdConsultation",
+            "path": "general-opd-consultation",
+            "slot": "general-opd-consultation-dashboard-slot",
+            "Translation overrides": {
+              "en": {
+                "generalOpdConsultation": "Consultation"
+              }
+            }
+          },
+          "dashboard#tb-treatment": {
+            "title": "tbTreatment",
+            "path": "tb-treatment",
+            "slot": "tb-treatment-dashboard-slot",
+            "Translation overrides": {
+              "en": {
+                "tbTreatment": "TB Treatment"
+              }
+            }
+          },
+          "dashboard#dental": {
+            "title": "dental",
+            "path": "dental",
+            "slot": "dental-dashboard-slot",
+            "Translation overrides": {
+              "en": {
+                "dental": "Dental"
+              }
+            }
+          }
+        }
+      },
+      "mnch-group-slot": {
+        "add": [
+          "dashboard#cwc",
+          "dashboard#anc",
+          "dashboard#pnc",
+          "dashboard#immunisation",
+          "dashboard#family-planning",
+          "dashboard#maternity",
+          "dashboard#prep"
+        ],
+        "order": [
+          "dashboard#cwc",
+          "dashboard#anc",
+          "dashboard#pnc",
+          "dashboard#immunisation",
+          "dashboard#family-planning",
+          "dashboard#maternity",
+          "dashboard#prep"
+        ],
+        "configure": {
+          "dashboard#cwc": {
+            "title": "cwc",
+            "path": "cwc",
+            "slot": "cwc-dashboard-slot",
+            "Translation overrides": {
+              "en": {
+                "cwc": "CWC"
+              }
+            }
+          },
+          "dashboard#anc": {
+            "title": "anc",
+            "path": "anc",
+            "slot": "anc-dashboard-slot",
+            "Translation overrides": {
+              "en": {
+                "anc": "ANC"
+              }
+            }
+          },
+          "dashboard#pnc": {
+            "title": "pnc",
+            "path": "pnc",
+            "slot": "pnc-dashboard-slot",
+            "Translation overrides": {
+              "en": {
+                "pnc": "PNC"
+              }
+            }
+          },
+          "dashboard#immunisation": {
+            "title": "immunisation",
+            "path": "immunisation",
+            "slot": "immunisation-dashboard-slot",
+            "Translation overrides": {
+              "en": {
+                "immunisation": "Immunisation"
+              }
+            }
+          },
+          "dashboard#family-planning": {
+            "title": "familyPlanning",
+            "path": "family-planning",
+            "slot": "family-planning-dashboard-slot",
+            "Translation overrides": {
+              "en": {
+                "familyPlanning": "Family Planning"
+              }
+            }
+          },
+          "dashboard#maternity": {
+            "title": "maternity",
+            "path": "maternity",
+            "slot": "maternity-dashboard-slot",
+            "Translation overrides": {
+              "en": {
+                "maternity": "Maternity"
+              }
+            }
+          },
+          "dashboard#prep": {
+            "title": "prep",
+            "path": "prep",
+            "slot": "prep-dashboard-slot",
+            "Translation overrides": {
+              "en": {
+                "prep": "pREP"
+              }
+            }
+          }
+        }
+      },
+      "chronic-disease-centre-group-slot": {
+        "add": [
+          "dashboard#ncd",
+          "dashboard#cervical-cancer"
+        ],
+        "order": [
+          "dashboard#ncd",
+          "dashboard#cervical-cancer"
+        ],
+        "configure": {
+          "dashboard#ncd": {
+            "title": "ncd",
+            "path": "ncd",
+            "slot": "ncd-dashboard-slot",
+            "Translation overrides": {
+              "en": {
+                "ncd": "NCD"
+              }
+            }
+          },
+          "dashboard#cervical-cancer": {
+            "title": "cervicalCancer",
+            "path": "cervical-cancer",
+            "slot": "cervical-cancer-dashboard-slot",
+            "Translation overrides": {
+              "en": {
+                "cervicalCancer": "Cancer"
+              }
+            }
+          }
+        }
+      },
+      "hts-group-slot": {
+        "add": [
+          "dashboard#hts"
+        ],
+        "order": [
+          "dashboard#hts"
+        ],
+        "configure": {
+          "dashboard#hts": {
+            "title": "hts",
+            "path": "hts",
+            "slot": "hts-dashboard-slot",
+            "Translation overrides": {
+              "en": {
+                "hts": "HTS"
+              }
+            }
+          }
+        }
+      },
+      "pnc-dashboard-slot": {
+        "add": [
+          "encounter-list"
+        ],
+        "configure": {
+          "encounter-list": {
+            "tabDefinitions": [
+              {
+                "tabName": "pncInitial",
+                "hasFilter": false,
+                "headerTitle": "pncInitial",
+                "displayText": "pncInitial",
+                "encounterType": "ded4ecf7-8129-4a9e-8aa3-a21a7adb7759",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC PNC Initial Visit Form v 1.0",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC PNC Initial Visit Form v 1.0",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "7f6f8c71-84b4-3730-8daf-28e887970519"
+                  }
+                ]
+              },
+              {
+                "tabName": "pncReturn",
+                "hasFilter": false,
+                "headerTitle": "pncReturn",
+                "displayText": "pncReturn",
+                "encounterType": "db215741-de99-424a-a109-1f23eb3b680b",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "POC PNC Return Visit Form v 1.1",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "POC PNC Return Visit Form v 1.1",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "d4439939-5642-3d65-8c15-df9a590f2e4f"
+                  }
+                ]
+              }
+            ],
+            "Translation overrides": {
+              "en": {
+                "pncInitial": "PNC Initial",
+                "pncReturn": "PNC Return"
+              }
+            }
+          }
+        }
+      },
+      "prep-dashboard-slot": {
+        "add": [
+          "encounter-list"
+        ],
+        "configure": {
+          "encounter-list": {
+            "tabDefinitions": [
+              {
+                "tabName": "prepInitial",
+                "hasFilter": false,
+                "headerTitle": "prepInitial",
+                "displayText": "prepInitial",
+                "encounterType": "00ee2fd6-9c95-4ffc-ab31-6b1ce2dede4d",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "AMPATH POC Pre Exposure Prophylaxis Initial Form v1.3",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "AMPATH POC Pre Exposure Prophylaxis Initial Form v1.3",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "ced9eb80-2630-42da-8a61-084711fdaa52"
+                  }
+                ]
+              },
+              {
+                "tabName": "prepFollowUp",
+                "hasFilter": false,
+                "headerTitle": "prepFollowUp",
+                "displayText": "prepFollowUp",
+                "encounterType": "ddd96f1c-524f-4caa-81a6-1a6f9789a4bc",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "AMPATH POC Pre Exposure Prophylaxis Follow up Form v1.3",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "AMPATH POC Pre Exposure Prophylaxis Follow up Form v1.3",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "8c4450b1-a8b4-43da-97a1-6f572483e76e"
+                  }
+                ]
+              }
+            ],
+            "Translation overrides": {
+              "en": {
+                "prepInitial": "PrEP Initial",
+                "prepFollowUp": "PrEP Follow Up"
+              }
+            }
+          }
+        }
+      },
+      "tb-treatment-dashboard-slot": {
+        "add": [
+          "encounter-list"
+        ],
+        "configure": {
+          "encounter-list": {
+            "tabDefinitions": [
+              {
+                "tabName": "tbTreatment",
+                "hasFilter": false,
+                "headerTitle": "tbTreatment",
+                "displayText": "tbTreatment",
+                "encounterType": "5c6813bd-b1f5-308b-b074-d9fb44626af4",
+                "columns": [
+                  {
+                    "id": "actions",
+                    "title": "actionsTitle",
+                    "actionOptions": [
+                      {
+                        "formName": "TB Treatment Form",
+                        "label": "viewDetails",
+                        "mode": "view"
+                      },
+                      {
+                        "formName": "TB Treatment Form",
+                        "label": "editForm",
+                        "mode": "edit"
+                      }
+                    ]
+                  }
+                ],
+                "launchOptions": {
+                  "displayText": "add"
+                },
+                "formList": [
+                  {
+                    "uuid": "5c6813bd-b1f5-308b-b074-d9fb44626af4"
+                  }
+                ]
+              }
+            ],
+            "Translation overrides": {
+              "en": {
+                "tbTreatment": "TB Treatment"
+              }
+            }
+          }
+        }
+      }
+    },
+    "restrictByVisitLocationTag": true,
+    "showUpcomingAppointments": true,
+    "showServiceQueueFields": true
+  },
+  "@openmrs/esm-appointments-app": {
+    "extensionSlots": {
+      "configure": {
+        "clinical-appointments-dashboard-link": {
+          "Display conditions": {
+            "privileges": [
+              "O3 View Appointments Dashboard"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "@openmrs/esm-patient-banner": {
+    "extensionSlots": {
+      "patient-banner-tags-slot": {
+        "remove": [
+          "queue-patient-info-queue-entry-status"
+        ]
+      }
+    }
+  },
+  "@openmrs/esm-ward-app": {
+    "extensionSlots": {
+      "action-menu-ward-patient-items-slot": {
+        "add": [
+          "order-basket-action-menu"
+        ]
+      }
+    },
+    "Translation overrides": {
+      "en": {
+        "wards": "Admissions"
+      }
+    },
+    "patientCardElements": {
+      "pendingItems": [
+        {
+          "id": "pending-items",
+          "orders": {
+            "orderTypes": [
+              {
+                "label": "Labs",
+                "uuid": "53eb4768-1359-11df-a1f1-0026b9348838"
+              }
+            ]
+          },
+          "showPendingItems": true
+        }
+      ]
+    }
+  },
+  "@openmrs/esm-service-queues-app": {
+    "statusConfigs": [
+      {
+        "conceptUuid": "89d01aa5-0ab0-4626-934b-37766b4cd779",
+        "iconComponent": "InProgress"
+      },
+      {
+        "conceptUuid": "f9cf5768-508f-45de-8d40-eaf6ea3f3b02",
+        "iconComponent": "Group"
+      },
+      {
+        "conceptUuid": "a89c1ef8-1350-11df-a1f1-0026b9348838",
+        "iconComponent": "Group"
+      }
+    ],
+    "concepts": {
+      "defaultPriorityConceptUuid": "bbd99c12-67e9-4381-8b4c-1f231e86f8e2",
+      "emergencyPriorityConceptUuid": "8e86ff12-ec83-41e8-a534-bb410739d880",
+      "defaultStatusConceptUuid": "89d01aa5-0ab0-4626-934b-37766b4cd779",
+      "defaultTransitionStatus": "f9cf5768-508f-45de-8d40-eaf6ea3f3b02"
+    },
+    "visitQueueNumberAttributeUuid": "",
+    "defaultFacilityUrl": ""
+  },
+  "@openmrs/esm-styleguide": {
+    "Brand color #1": "#006838",
+    "Brand color #2": "#006838",
+    "Brand color #3": "#006838"
+  },
+  "@openmrs/esm-login-app": {
+    "logo": {
+      "src": "${openmrsSpaBase}/ampath-logo.svg",
+      "alt": "Logo"
+    },
+    "links": {
+      "loginSuccess": "${openmrsSpaBase}/home/registry"
+    },
+    "showPasswordOnSeparateScreen": false
+  },
+  "@openmrs/esm-patient-medications-app": {
+    "drugOrderTypeUUID": "53eb466e-1359-11df-a1f1-0026b9348838",
+    "daysDurationUnit": {
+      "display": "",
+      "uuid": "52e8a934-d57c-4ef0-9fb7-7c15d816b723"
+    },
+    "requireIndication": false
+  },
+  "@openmrs/esm-patient-tests-app": {
+    "resultsViewerConcepts": [
+      {
+        "conceptUuid": "0cb778e1-aa83-456f-8099-6b241dbfd647",
+        "defaultOpen": true
+      }
+    ],
+    "orders": {
+      "labOrderTypeUuid": "53eb4768-1359-11df-a1f1-0026b9348838",
+      "labOrderableConcepts": [
+        "0cb778e1-aa83-456f-8099-6b241dbfd647"
+      ]
+    },
+    "showReferenceNumberField": false
+  },
+  "@openmrs/esm-patient-vitals-app": {
+    "concepts": {
+      "vitalSignsConceptSetUuid": "a899e6d8-1350-11df-a1f1-0026b9348838",
+      "diastolicBloodPressureUuid": "a8a65e36-1350-11df-a1f1-0026b9348838",
+      "pulseUuid": "a8a65f12-1350-11df-a1f1-0026b9348838",
+      "temperatureUuid": "a8a65fee-1350-11df-a1f1-0026b9348838",
+      "oxygenSaturationUuid": "a8a66354-1350-11df-a1f1-0026b9348838",
+      "heightUuid": "a8a6619c-1350-11df-a1f1-0026b9348838",
+      "weightUuid": "a8a660ca-1350-11df-a1f1-0026b9348838",
+      "respiratoryRateUuid": "a8a6f71a-1350-11df-a1f1-0026b9348838",
+      "midUpperArmCircumferenceUuid": "a89c6188-1350-11df-a1f1-0026b9348838",
+      "systolicBloodPressureUuid": "a8a65d5a-1350-11df-a1f1-0026b9348838"
+    },
+    "vitals": {
+      "encounterTypeUuid": "8a43b09b-2d9f-487c-a1c3-d6bf220671a7"
+    }
+  },
+  "@openmrs/esm-patient-orders-app": {
+    "orderEncounterType": "d8e0f981-62e0-4c2a-b3ca-890c51afc350",
+    "orderTypes": [
+      {
+        "orderTypeUuid": "ff4485a4-f071-4423-aeb2-db6efce52b83",
+        "orderableConceptSets": [
+          "e83f4f97-91eb-4858-89d8-371535c5c131",
+          "759a4bd6-79ab-40a9-9836-1e30783f7ae5"
+        ],
+        "label": "Radiology Orders",
+        "icon": "omrs-icon-image-medical"
+      },
+      {
+        "orderTypeUuid": "2315ab24-9a4e-4b36-b189-8e74d2c77394",
+        "orderableConceptSets": [
+          "eef060d3-d503-4695-a9ba-47f5af44135b"
+        ],
+        "label": "Procedure Orders",
+        "icon": "omrs-icon-syringe"
+      }
+    ],
+    "showReferenceNumberField": false
+  },
+  "@openmrs/esm-home-app": {
+    "extensionSlots": {
+      "homepage-dashboard-slot": {
+        "remove": [
+          "patient-lists-dashboard-link",
+          "service-queues-dashboard-link",
+          "ward-dashboard-link",
+          "billing-dashboard-link"
+        ]
+      }
+    }
+  },
+  "@ampath/esm-laboratory-app": {
+    "concepts": {
+      "laboratoryOrderTypeUuid": "53eb4768-1359-11df-a1f1-0026b9348838"
+    },
+    "laboratoryOrderTypeUuid": "53eb4768-1359-11df-a1f1-0026b9348838",
+    "filterByCurrentLocation": true,
+    "laboratoryServiceTypedUuid": "5adeb9de-5545-4272-add4-a661005f727e"
+  },
+  "@openmrs/esm-stock-management-app": {
+    "dispensingUnitsUUID": "cde07652-a157-4ee9-bb34-75ca8252cfb3",
+    "packingUnitsUUID": "39ae0d04-48ed-4c03-a2a8-83556065b457",
+    "stockAdjustmentReasonUUID": "455e69e8-20ac-4d74-a3a5-9841953e137d",
+    "stockItemCategoryUUID": "97be81a0-9b2f-4a91-bc0d-7ce49fa2edb9",
+    "stockSourceTypeUUID": "3bad45e5-9a6e-4732-bb77-ec73e89c4299",
+    "packagingUnitsUUID": "39ae0d04-48ed-4c03-a2a8-83556065b457"
+  },
+  "@openmrs/esm-billing-app": {
+    "logo": {
+      "src": "${openmrsSpaBase}/ampath-logo.svg",
+      "alt": "AMPATH"
+    }
+  },
+  "@ampath/esm-morgue-app": {
+
+  },
+  "@ampath/esm-dispensing-app": {
+    "locationBehavior": {
+      "locationFilter": {
+        "enabled": true,
+        "useCurrentLocation": true
+      }
+    },
+    "refreshInterval": 5000,
+    "valueSets": {
+      "reasonForPause": {
+        "uuid": "8b518396-da03-482e-b270-2ff90abb05a4"
+      },
+      "reasonForClose": {
+        "uuid": "8b518396-da03-482e-b270-2ff90abb05a4"
+      }
+    },
+    "completeOrderWithThisDispense": true,
+    "medicationRequestExpirationPeriodInDays": 7,
+    "dispenserProviderRoles": [
+      ""
+    ],
+    "dispenseBehavior": {
+      "endActiveVisitOnCompletingOrder": true
+    },
+    "pharmacyServiceTypedUuid": "eb111184-414f-40ae-b8f0-8d52116de72a"
+  },
+  "@openmrs/esm-patient-allergies-app": {
+    "concepts": {
+      "drugAllergenUuid": "01533151-0970-4453-b90a-4c0cdaf35cec",
+      "environmentalAllergenUuid": "20597a49-8273-4433-9e3c-b7ed7bb49399",
+      "foodAllergenUuid": "cb5007bc-2ca3-46d1-9bcd-1a2cdffc8f0d",
+      "mildReactionUuid": "a89efccc-1350-11df-a1f1-0026b9348838",
+      "moderateReactionUuid": "a89efdee-1350-11df-a1f1-0026b9348838",
+      "severeReactionUuid": "a89eff1a-1350-11df-a1f1-0026b9348838",
+      "allergyReactionUuid": "cfc65c25-3872-47c7-9274-ff11742bd5a9",
+      "otherConceptUuid": "a899c59a-1350-11df-a1f1-0026b9348838"
+    }
+  },
+  "@ampath/esm-clinical-reminders-app": {
+    "etlBaseUrl": "/etl"
+  },
+  "@ampath/esm-poc-features-app": {
+    "etlBaseUrl": "/etl"
+  },
+  "@ampath/esm-procedures-app": {
+    "proceduresServiceTypedUuid": "e8ec4f6b-ed6c-4d5f-8228-7e52b109ca12"
+  },
+  "@openmrs/esm-patient-notes-app": {
+    "stickyNoteConceptUuid": "1af9de80-6755-485e-82ec-e1fdc0cd18da"
+  }
+}

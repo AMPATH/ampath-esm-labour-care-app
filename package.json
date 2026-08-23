@@ -8,7 +8,8 @@
   "source": true,
   "scripts": {
     "start": "openmrs develop",
-    "dev": "openmrs develop --backend=https://staging.ampath.or.ke --api-url=/openmrs --config-url=https://ngx.ampath.or.ke/o3-config.json --port=9000",
+    "devx": "openmrs develop --backend=https://staging.ampath.or.ke --api-url=/openmrs --config-url=https://ngx.ampath.or.ke/o3-config.json --port=9000",
+    "dev": "openmrs develop --backend=https://staging.ampath.or.ke --api-url=/openmrs --config-file=config.json --port=9000",
     "serve": "webpack serve --mode=development",
     "build": "webpack --mode production",
     "analyze": "webpack --mode=production --env analyze=true",
@@ -47,6 +48,7 @@
     "@hookform/resolvers": "^3.6.0",
     "lodash-es": "^4.17.21",
     "react-hook-form": "^7.52.2",
+    "react-to-print": "^3.3.0",
     "sass": "^1.98.0",
     "zod": "^3.23.8"
   },
